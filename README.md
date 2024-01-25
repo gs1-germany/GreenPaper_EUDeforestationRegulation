@@ -1,18 +1,5 @@
-<html>
-<head>
-  <style>
-    .company-logo {
-      width: 15%;
-      margin-bottom: 25px;
-    }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <img src="GS1DE.jpeg" alt="GS1 Germany Logo" class="company-logo"/>
-  </div>
-</body>
-</html>
+<p align="left"><img src="GS1DE.jpeg" alt="GS1 Germany Logo" width="20%"></p>
+<br>
 
 # EU Deforestation Regulation White Paper
 
@@ -20,9 +7,9 @@ GS1 Germany White Paper on how to meet the EUDR's requirements with GS1 standard
 
 ## Disclaimer
 
-This document is a GS1 White Paper only. Specifically, it is neither a ratified application standard nor a ratified implementation guideline, i.e. it is not approved by any GS1/GS1 Germany board or committee. It is intended to provide a possible 'best guess' solution on how to meet the EUDR's requirements applying GS1 standards. It is considered to serve as input for future GS1 standardisation activities in this domain though.
+THIS DOCUMENT IS A GS1 WHITE PAPER ONLY, NOT A RATIFIED APPLICATION STANDARD OR IMPLEMENTATION GUIDELINE APPROVED BY ANY GS1/GS1 GERMANY BOARD OR COMMITTEE. ITS PURPOSE IS TO OFFER A POTENTIAL 'BEST GUESS' SOLUTION FOR MEETING EUDR REQUIREMENTS USING GS1 STANDARDS. IT AIMS TO CONTRIBUTE TO FUTURE GS1 STANDARDISATION EFFORTS IN THIS AREA.
 
-That said, it was developed in all conscience and in close collaboration with OSAPIENS, a GS1 Germany Solution Partner facilitating a user group focussing on this subject.
+IT WAS DEVELOPED DILIGENTLY AND IN COLLABORATION WITH OSAPIENS, A GS1 GERMANY SOLUTION PARTNER, LEADING A USER GROUP FOCUSING ON THIS TOPIC.
 
 ## Introduction
 
