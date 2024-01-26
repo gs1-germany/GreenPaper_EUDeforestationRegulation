@@ -37,13 +37,9 @@ It is important to note that the EUDR specifies a number of responsibilities for
 
 1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, §3)
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, §4.1 and §4.2)
+3. ...
 
-
-
-This document 
-
-
-In scope is 
+TO BE COMPLETED
 
 Out of scope: risk assessment, 
 "information to ensure the transparency of the supply chain of relevant products",
@@ -58,28 +54,34 @@ The solution approach aims at making it as easy and efficient for affected compa
 
 The beauty of this approach consists in the fact that this 'EPCIS Origin Declaration Event' is only a derivate of already existing visibility (e.g. harvesting, transformation) events. Further, if providers of traceability platforms take care of transmitting the due diligence statements to the EU in a consolidated manner, growers need to indicate their product/location/party master data only once rather than repeating the latter in each and every message. Thus, they can focus on providing just the few additional dynamic properties (e.g. acreage polygons) as required by the regulation.
 
-The following picture illustrates the solution approach, taking the example of a manufacturer of cocoa butter for which the latter uses cocoa beans provided by various suppliers.
+The following picture illustrates the solution approach, taking the example of a manufacturer of a product for which the latter uses commodities provided by various suppliers.
 
+![Solution approach illustration](EUDR_SolutionApproachDrawing.jpg "Solution approach illustration")
 
+## Data sharing conception
 
-
-
-
-## Data sharing requirements
-
-<IDEE: Solution concept illustration>
-- Economic Operator - Platform/SP - EU (=> genaune Bezeichnungen gem. EUDR)
 - Product, organisation and location master data (static)
 - Visibility data (dynamic)
 
-### Mapping of required fields with EPCIS event fields
+### Master Data vs. Event Data
 
-Table 
-eoid => GS1 DL URI, AI 417
+### Mapping of required fields with GS1 data structures
 
+IDEE: Vier Tabellen mit geforderten Infos gemäß EUDR
+a. Product Master Data
+b. Location Master Data
+c. Party Master Data
+d. Event Data
 
-## Master Data vs. Event Data 
+#### Product master data
 
+eudr:hsCode
+eudr:commodityDescription
+eudr:scientificName
+eudr:commonName
+
+## Master data specification
+TBD: GS1 Web Voc format?
 
 ## EPCIS event message specification
 
@@ -89,21 +91,9 @@ Note that none of the specified EPCIS user extension fields are standardised yet
 
 Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
 
-### Product master data
+### Message examples
 
-eudr:hsCode
-eudr:commodityDescription
-eudr:scientificName
-eudr:commonName
-
-
-## EPCIS message examples
-
-
-
-
-
-### EPCIS 2.0 XML Example
+#### EPCIS 2.0 XML Example
 
 ```xml
 <epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2019-11-28T14:59:02.000+01:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
@@ -181,7 +171,7 @@ eudr:commonName
 </epcis:EPCISDocument>
 ```
 
-### EPCIS 2.0 JSON/JSON-LD Example
+#### EPCIS 2.0 JSON/JSON-LD Example
 
 ```json
 {
