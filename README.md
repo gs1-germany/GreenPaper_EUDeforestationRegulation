@@ -46,7 +46,8 @@ This document
 In scope is 
 
 Out of scope: risk assessment, 
-"information to ensure the transparency of the supply chain of relevant products"
+"information to ensure the transparency of the supply chain of relevant products",
+any further upstream or downstream EPCIS events 
 
 ## Data sharing requirements
 
@@ -242,6 +243,16 @@ eudr:commonName
 }
 ```
 
+## Authors
+
+| Name                   | Affiliation              | Job Title              |
+| ---------------------- | ------------------------ | ---------------------- |
+| Dr Ralph Troeger       | GS1 Germany              | Senior Manager AIDC    |
+| TBC: Patrik Rothe      | OSAPIENS                 | ...                    |
+| TBC: Elisabeth Kikidis | GS1 Germany              | Senior Manager AIDC    |
+| TBC: Sabine Klaeser    | GS1 Germany              | Senior Manager AIDC    |
+| TBC: Frank Kuhlmann    | GS1 Germany              | Lead AIDC              |
+| TBC: Carsten Mohr      | OSAPIENS                 |                        |
 
 ## References
 
