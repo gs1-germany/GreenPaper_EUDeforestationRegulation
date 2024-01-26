@@ -89,18 +89,156 @@ eudr:commonName
 ### EPCIS 2.0 XML Example
 
 ```xml
-<xml>
-    <test1>
-    </test1>
-
-</xml>
+<epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2019-11-28T14:59:02.000+01:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
+	<EPCISBody>
+		<EventList>
+			<ObjectEvent>
+				<!-- Date and time when declaration was made. Should be equal or lower than harvestEndDate -->
+				<eventTime>2024-01-20T03:00:00.000+02:00</eventTime>
+				<eventTimeZoneOffset>+02:00</eventTimeZoneOffset>
+				<action>OBSERVE</action>
+				<bizStep>https://example.com/bizStep/declaring_origin</bizStep>
+				<!-- Identifies the supplier's place of business (e.g. headquarters). Usually corresponds with operator's Party GLN, see eudr:operatorID -->
+				<readPoint>
+					<id>https://id.gs1.org/414/4000001100002</id>
+				</readPoint>
+				<bizTransactionList>
+					<!-- TBD: most suitable URI notation. URN-based URI vs. HTTPS URIs, CBV 2.0, 8.5.3 vs. 8.5.5 -->
+					<bizTransaction type="https://example.com/btt/dueDiligenceStatementNumber">https://epcis.example.com/user/vocab/bt/DDS.123</bizTransaction>
+					<!-- (Optional) Business transaction reference(s) e.g., purchase order number for later mapping -->
+					<bizTransaction type="https://ref.gs1.org/cbv/BTT-po">urn:epcglobal:cbv:bt:4000001000005:PO12345</bizTransaction>
+				</bizTransactionList>
+				<!-- Identification of the supplied product via GTIN (and batch) and its quantity -->
+				<quantityList>
+					<quantityElement>
+						<epcClass>https://id.gs1.org/01/04000044001236/10/BATCH123</epcClass>
+						<quantity>50</quantity>
+						<uom>KGM</uom>
+					</quantityElement>
+				</quantityList>
+				<!-- TBD: Use GS1 Web Voc (if applicable) or proceed with eudr user extensions for the time being? -->
+				<eudr:harvestDateStart>2024-01-20</eudr:harvestDateStart>
+				<eudr:harvestDateEnd>2024-01-18</eudr:harvestDateEnd>
+				<!-- Own EORI (Economic Operators Registration and Identification) number -->
+				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
+				<!-- (Optional) Party GLN identifying operator who makes the statement -->
+				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
+				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
+				<eudr:countryList>
+					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
+					<eudr:country>CO</eudr:country>
+				</eudr:countryList>
+				<!-- Origin information -->
+				<eudr:originList>
+					<!-- 1 or more occurrences (one container = one geolocation or polygon) -->
+					<eudr:originDetails>
+						<!-- Identification of the plot of land via polygon -->
+						<!-- See also: https://ref.gs1.org/standards/cbv/#page=118 -->
+						<eudr:geofence>[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]</eudr:geofence>
+						<!-- Optional area size -->
+						<eudr:areaSize>
+							<eudr:value>100</eudr:value>
+							<eudr:unitCode>HAR</eudr:unitCode>
+						</eudr:areaSize>
+						<!-- Optional producer/farmer information -->
+						<eudr:producerIdentification>
+							<!-- TBD: really freetext or proper ID? -->
+							<eudr:producer>Farmer ABC</eudr:producer>
+						</eudr:producerIdentification>
+					</eudr:originDetails>
+					<eudr:originDetails>
+						<!-- Identification of the plot of land via geolocation -->
+						<eudr:geolocation>geo:50.942499,6.898247</eudr:geolocation>
+						<eudr:areaSize>
+							<eudr:value>2.5</eudr:value>
+							<eudr:unitCode>HAR</eudr:unitCode>
+						</eudr:areaSize>
+						<eudr:producerIdentification>
+							<eudr:producer>Farmer DEF</eudr:producer>
+						</eudr:producerIdentification>
+					</eudr:originDetails>
+				</eudr:originList>
+			</ObjectEvent>
+		</EventList>
+	</EPCISBody>
+</epcis:EPCISDocument>
 ```
 
 ### EPCIS 2.0 JSON/JSON-LD Example
 
 ```json
 {
-  
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/2.0.0/epcis-context.jsonld",
+    {
+      "eudr": "https://ns.eudr.example.com"
+    }
+  ],
+  "type": "EPCISDocument",
+  "schemaVersion": "2.0",
+  "creationDate": "2019-11-28T14:59:02.000+01:00",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-01-20T03:00:00+02:00",
+        "eventTimeZoneOffset": "+02:00",
+        "action": "OBSERVE",
+        "bizStep": "https://example.com/bizStep/declaring_origin",
+        "readPoint": {
+          "id": "https://id.gs1.org/414/4000001100002"
+        },
+        "bizTransactionList": [
+          {
+            "type": "https://example.com/btt/dueDiligenceStatementNumber",
+            "bizTransaction": "https://epcis.example.com/user/vocab/bt/DDS.123"
+          },
+          {
+            "type": "po",
+            "bizTransaction": "urn:epcglobal:cbv:bt:4000001000005:PO12345"
+          }
+        ],
+        "quantityList": [
+          {
+            "epcClass": "https://id.gs1.org/01/04000044001236/10/BATCH123",
+            "quantity": 50,
+            "uom": "KGM"
+          }
+        ],
+        "eudr:countryList": {
+          "eudr:country": "CO"
+        },
+        "eudr:eoriNumber": "DE12345678912345",
+        "eudr:originList": {
+          "eudr:originDetails": [
+            {
+              "eudr:areaSize": {
+                "eudr:value": "100",
+                "eudr:unitCode": "HAR"
+              },
+              "eudr:producerIdentification": {
+                "eudr:producer": "Farmer ABC"
+              },
+              "eudr:geofence": "[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]"
+            },
+            {
+              "eudr:geolocation": "geo:50.942499,6.898247",
+              "eudr:areaSize": {
+                "eudr:value": "2.5",
+                "eudr:unitCode": "HAR"
+              },
+              "eudr:producerIdentification": {
+                "eudr:producer": "Farmer DEF"
+              }
+            }
+          ]
+        },
+        "eudr:harvestDateStart": "2024-01-20",
+        "eudr:harvestDateEnd": "2024-01-18",
+        "eudr:partyGLN": "https://id.gs1.org/417/4000001000005"
+      }
+    ]
+  }
 }
 ```
 
