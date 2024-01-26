@@ -33,9 +33,15 @@ Products "...that contain, have been fed with or have been made using [the above
 
 ## In scope/out of scope
 
-It is important to note that the EUDR 
+It is important to note that the EUDR specifies a number of responsibilities for companies importing the mentioned commodities into the EU market, most notably (no claim to completeness):
+
+1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, §3)
+2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, §4.1 and §4.2)
+
+
 
 This document 
+
 
 In scope is 
 
@@ -66,7 +72,12 @@ Note that none of the specified EPCIS user extension fields are standardised yet
 
 Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
 
-## Master data file example
+### Product master data
+
+eudr:hsCode
+eudr:commodityDescription
+eudr:scientificName
+eudr:commonName
 
 
 ## EPCIS message examples
