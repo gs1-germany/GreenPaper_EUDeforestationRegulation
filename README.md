@@ -47,7 +47,23 @@ In scope is
 
 Out of scope: risk assessment, 
 "information to ensure the transparency of the supply chain of relevant products",
-any further upstream or downstream EPCIS events 
+any further upstream or downstream EPCIS events
+Mapping to EU due diligence statement message (=> does that exist already???)
+
+## Solution Approach
+
+### Overview
+
+The solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, growers of the above-mentioned commodities only need to capture one concise electronic message ('EPCIS Origin Declaration Event'), which in turn is transformed into a corresponding due diligence message (thereby e.g. enriched with appropriate master data according to the EU's requirements) and sent to the API endpoint specified by the EU. As many growers already share their traceability data via data exchange platforms, this transformation/mapping can be performed by their respective platform providers.
+
+The beauty of this approach consists in the fact that this 'EPCIS Origin Declaration Event' is only a derivate of already existing visibility (e.g. harvesting, transformation) events. Further, if providers of traceability platforms take care of transmitting the due diligence statements to the EU in a consolidated manner, growers need to indicate their product/location/party master data only once rather than repeating the latter in each and every message. Thus, they can focus on providing just the few additional dynamic properties (e.g. acreage polygons) as required by the regulation.
+
+The following picture illustrates the solution approach, taking the example of a manufacturer of cocoa butter for which the latter uses cocoa beans provided by various suppliers.
+
+
+
+
+
 
 ## Data sharing requirements
 
