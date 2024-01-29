@@ -7,13 +7,13 @@ GS1 Germany Green Paper on how to meet the EUDR's requirements with GS1 standard
 
 ## Disclaimer
 
-THIS DOCUMENT IS A GS1 GREEN PAPER ONLY, NOT A RATIFIED APPLICATION STANDARD OR IMPLEMENTATION GUIDELINE APPROVED BY ANY GS1/GS1 GERMANY BOARD OR COMMITTEE. ITS PURPOSE IS TO STIMULATE DISCUSSION AND TO PAVE THE WAY FOR DEVELOPING A SOLUTION APPROACH FOR MEETING EUDR REQUIREMENTS USING GS1 STANDARDS. IT ALSO AIMS TO CONTRIBUTE TO FUTURE GS1 STANDARDISATION EFFORTS IN THIS AREA.
+THIS DOCUMENT IS A GS1 GERMANY GREEN PAPER ONLY, NOT A RATIFIED APPLICATION STANDARD OR IMPLEMENTATION GUIDELINE APPROVED BY ANY GS1/GS1 GERMANY BOARD OR COMMITTEE. ITS PURPOSE IS TO STIMULATE DISCUSSION AND TO PAVE THE WAY FOR DEVELOPING A SOLUTION APPROACH FOR MEETING EUDR REQUIREMENTS USING GS1 STANDARDS. IT ALSO AIMS TO CONTRIBUTE TO FUTURE GS1 STANDARDISATION EFFORTS IN THIS AREA.
 
 ## Introduction
 
 ### Synopsis of the EUDR
 
-The Regulation (EU) 2023/1115 targets deforestation and forest degradation, underscoring the value of forests and the urgency to address global deforestation. It recognizes the EU's contribution to this issue through its consumption patterns and advocates for regulatory actions to minimize the EU's deforestation impact. The regulation mandates sustainable and deforestation-free production of commodities and products, including due diligence, risk assessment, and supply chain transparency. It also stipulates enforcement and penalties for non-compliance, and emphasizes the EU's dedication to international collaboration for a global approach against deforestation.
+The Regulation (EU) 2023/1115 targets deforestation and forest degradation, underscoring the value of forests and the urgency to address global deforestation. It recognises the EU's contribution to this issue through its consumption patterns and advocates for regulatory actions to minimise the EU's deforestation impact. The regulation mandates sustainable and deforestation-free production of commodities and products, including due diligence, risk assessment, and supply chain transparency. It also stipulates enforcement and penalties for non-compliance, and emphasises the EU's dedication to international collaboration for a global approach against deforestation.
 
 ### Affected commodities and products
 
@@ -27,7 +27,7 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 6. Cattle
 7. Rubber
 
-Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, §2.2) fall under the legislation. Annex I of the regulation lists concrete exampels. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
+Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, §2.2) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
 
 ## In scope/out of scope
 
