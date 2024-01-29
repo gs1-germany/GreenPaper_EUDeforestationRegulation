@@ -58,10 +58,14 @@ The following picture illustrates the solution approach, taking the example of a
 
 ## Data sharing conception
 
-- Product, organisation and location master data (static)
-- Visibility data (dynamic)
+### Due Diligence Statement
+
+![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 
 ### Master Data vs. Event Data
+
+- Product, organisation and location master data (static)
+- Visibility data (dynamic)
 
 ### Mapping of required fields with GS1 data structures
 
