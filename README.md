@@ -251,16 +251,14 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
 }
 ```
 
-## Authors
+## Contributors
 
 | Name                   | Affiliation              | Job Title              |
 | ---------------------- | ------------------------ | ---------------------- |
 | Dr Ralph Troeger       | GS1 Germany              | Senior Manager AIDC    |
-| TBC: Patrik Rothe      | OSAPIENS                 | ...                    |
 | TBC: Elisabeth Kikidis | GS1 Germany              | Senior Manager AIDC    |
 | TBC: Sabine Klaeser    | GS1 Germany              | Senior Manager AIDC    |
 | TBC: Frank Kuhlmann    | GS1 Germany              | Lead AIDC              |
-| TBC: Carsten Mohr      | OSAPIENS                 |                        |
 
 ## References
 
