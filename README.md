@@ -102,7 +102,7 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
 #### EPCIS 2.0 XML Example
 
 ```xml
-<epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2019-11-28T14:59:02.000+01:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
+<epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2024-01-20T03:00:00.000+02:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
 	<EPCISBody>
 		<EventList>
 			<ObjectEvent>
@@ -189,7 +189,7 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
   ],
   "type": "EPCISDocument",
   "schemaVersion": "2.0",
-  "creationDate": "2019-11-28T14:59:02.000+01:00",
+  "creationDate": "2024-01-20T03:00:00.000+02:00",
   "epcisBody": {
     "eventList": [
       {
