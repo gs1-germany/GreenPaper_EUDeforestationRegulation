@@ -44,7 +44,7 @@ Out of scope: risk assessment,
 any further upstream or downstream EPCIS events
 Mapping to EU due diligence statement message (=> does that exist already???)
 
-## Solution Approach
+## Potential solution approach
 
 ### Overview
 
@@ -60,7 +60,7 @@ The following picture illustrates the solution approach, taking the example of a
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 
-### Master Data vs. Event Data
+### Master data vs. event data
 
 Explain that the above DDS consists of:
 - Product, organisation and location master data (static)
@@ -99,7 +99,7 @@ Note that none of the specified EPCIS user extension fields are standardised yet
 
 Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
 
-#### EPCIS 2.0 XML Example
+#### EPCIS 2.0 XML example
 
 ```xml
 <epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2024-01-20T03:00:00.000+02:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
@@ -177,7 +177,7 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
 </epcis:EPCISDocument>
 ```
 
-#### EPCIS 2.0 JSON/JSON-LD Example
+#### EPCIS 2.0 JSON/JSON-LD example
 
 ```json
 {
