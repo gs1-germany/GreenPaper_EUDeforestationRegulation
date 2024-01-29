@@ -29,7 +29,7 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 
 Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, §2.2) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
 
-## In scope/out of scope
+### In scope/out of scope
 
 It is important to note that the EUDR specifies a number of responsibilities for companies importing the mentioned commodities into the EU market, most notably (no claim to completeness):
 
@@ -56,24 +56,22 @@ The following picture illustrates the solution approach, taking the example of a
 
 ![Solution approach illustration](./images/EUDR_SolutionApproachDrawing.jpg "Solution approach illustration")
 
-## Data sharing conception
-
 ### Due Diligence Statement
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 
 ### Master Data vs. Event Data
 
+Explain that the above DDS consists of:
 - Product, organisation and location master data (static)
 - Visibility data (dynamic)
 
-### Mapping of required fields with GS1 data structures
+### Master Data
 
-IDEE: Vier Tabellen mit geforderten Infos gemäß EUDR
+IDEE: Drei Tabellen mit geforderten Infos gemäß EUDR
 a. Product Master Data
 b. Location Master Data
 c. Party Master Data
-d. Event Data
 
 #### Product master data
 
@@ -85,19 +83,21 @@ eudr:scientificName
 
 eudr:commonName
 
+TBD: GS1 Web Voc format (+ Bsp.)?
 
-## Master data specification
-TBD: GS1 Web Voc format?
+#### Location master data
 
-## EPCIS event message specification
+TBD: In this section, we COULD indicate that if a given field has a defined polygon, a master data service (e.g. the GS1 Registry) could store/provide this polygon and further ease data provision.
 
-### Preliminary remark
+#### Party master data
+
+### Event data
+
+#### Preliminary remark
 
 Note that none of the specified EPCIS user extension fields are standardised yet. This is why the latter are declared under the `example` namespace.
 
 Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
-
-### Message examples
 
 #### EPCIS 2.0 XML Example
 
