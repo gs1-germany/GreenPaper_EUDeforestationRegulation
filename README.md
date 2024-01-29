@@ -1,4 +1,4 @@
-<p align="left"><img src="GS1DE.jpeg" alt="GS1 Germany Logo" width="20%"></p>
+<p align="left"><img src="./images/GS1DE.jpeg" alt="GS1 Germany Logo" width="20%"></p>
 <br>
 
 # EU Deforestation Regulation Green Paper
@@ -48,13 +48,13 @@ Mapping to EU due diligence statement message (=> does that exist already???)
 
 ### Overview
 
-The solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, growers of the above-mentioned commodities only need to capture one concise electronic message ('EPCIS Origin Declaration Event'), which in turn is transformed into a corresponding due diligence message (thereby e.g. enriched with appropriate master data according to the EU's requirements) and sent to the API endpoint specified by the EU. As many growers already share their traceability data via data exchange platforms, this transformation/mapping can be performed by their respective platform providers.
+The solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, growers of the above-mentioned commodities only need to capture one concise electronic message ('EPCIS Origin Declaration Event'), which in turn is transformed into a corresponding due diligence message (thereby e.g. enriched with appropriate master data according to the EU's requirements) and sent to the API endpoint which will be specified by the EU. As many growers already share their traceability data via data exchange platforms, this transformation/mapping can be performed by their respective platform providers.
 
 The beauty of this approach consists in the fact that this 'EPCIS Origin Declaration Event' is only a derivate of already existing visibility (e.g. harvesting, transformation) events. Further, if providers of traceability platforms take care of transmitting the due diligence statements to the EU in a consolidated manner, growers need to indicate their product/location/party master data only once rather than repeating the latter in each and every message. Thus, they can focus on providing just the few additional dynamic properties (e.g. acreage polygons) as required by the regulation.
 
 The following picture illustrates the solution approach, taking the example of a manufacturer of a product for which the latter uses commodities provided by various suppliers.
 
-![Solution approach illustration](EUDR_SolutionApproachDrawing.jpg "Solution approach illustration")
+![Solution approach illustration](./images/EUDR_SolutionApproachDrawing.jpg "Solution approach illustration")
 
 ## Data sharing conception
 
