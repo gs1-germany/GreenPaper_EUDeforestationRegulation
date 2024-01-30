@@ -27,22 +27,31 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 6. Cattle
 7. Rubber
 
-Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, §2.2) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
+Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
 
 ### In scope/out of scope
 
 It is important to note that the EUDR specifies a number of responsibilities for companies importing the mentioned commodities into the EU market, most notably (no claim to completeness):
 
-1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, §3)
-2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, §4.1 and §4.2)
-3. ...
+1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, § 3)
+2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
+3. Perform due diligence for each affected supplier (EU 2023, § 8), including the collection of information, data and documents (EU 2023, § 9), risk assessments (EU 2023, § 10), and risk mitigation measures (EU 2023, § 11).
+4. 
 
 TO BE COMPLETED
 
-Out of scope: risk assessment, 
-"information to ensure the transparency of the supply chain of relevant products",
-any further upstream or downstream EPCIS events
-Mapping to EU due diligence statement message (=> does that exist already???)
+In scope:
+1. Data exchange solution candidate for transmitting dynamic data (e.g. quantity, country of production, geolocation) as required in EU (2023) § 9, including syntax, fields and values.
+2. Data exchange solution candidate for transmitting static data (e.g. product name and description or name and postal address of operators) as required in EU (2023) § 9, including fields and values.
+
+Out of scope:
+1. Advice regarding the collection of information, data and documents as per EU (2023) § 9 as such.
+2. Specification of upstream or downstream data structures (e.g. EPCIS events) that are able to convey data to support the obligations indicated under (A).
+3. Advice regarding risk assessment as per EU (2023) § 10.
+4. Procedures and measures for risk mitigation as per EU (2023) § 11.
+5. Specification of the EU Due Diligence Statement message.
+6. Mapping of the EPCIS Origin Declaration Event to the EU Due Diligence Statement.
+7. Any other subject not explicily mentioned to be in scope.
 
 ## Potential solution approach
 
@@ -91,6 +100,11 @@ TBD: In this section, we COULD indicate that if a given field has a defined poly
 
 #### Party master data
 
+§9: 
+"(e) the name, postal address and email address of any business or person from whom they have been supplied with the relevant products;
+(f) the name, postal address and email address of any business, operator or trader to whom the relevant products have been supplied;
+
+
 ### Event data
 
 #### Preliminary remark
@@ -98,6 +112,10 @@ TBD: In this section, we COULD indicate that if a given field has a defined poly
 Note that none of the specified EPCIS user extension fields are standardised yet. This is why the latter are declared under the `example` namespace.
 
 Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
+
+#### Design considerations
+
+- e.g. each EPCIS event is related to (one?) specific product (TBD) 
 
 #### EPCIS 2.0 XML example
 
