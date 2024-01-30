@@ -61,13 +61,15 @@ The solution approach aims at making it as easy and efficient for affected compa
 
 The beauty of this approach consists in the fact that this 'EPCIS Origin Declaration Event' is only a derivate of already existing visibility (e.g. harvesting, transformation) events. Further, if providers of traceability platforms take care of transmitting the due diligence statements to the EU in a consolidated manner, growers need to indicate their product/location/party master data only once rather than repeating the latter in each and every message. Thus, they can focus on providing just the few additional dynamic properties (e.g. acreage polygons) as required by the regulation. In addition, the respective platform providers can check whether the provided data is complete as well as fulfils the legal requirements.
 
-The following picture illustrates the solution approach, taking the example of a manufacturer of a product for which the latter uses commodities provided by various suppliers.
+The following, simplified picture illustrates the solution approach, taking the example of a manufacturer of a product for which the latter uses commodities provided by various suppliers.
 
 ![Solution approach illustration](./images/EUDR_SolutionApproachDrawing.jpg "Solution approach illustration")
+*Figure 1: Simplified illustration of solution candidate scope*
 
 ### Due Diligence Statement
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
+*Figure 2: Due Diligence Statement as per EU (2023), Annex II*
 
 ### Master data vs. event data
 
