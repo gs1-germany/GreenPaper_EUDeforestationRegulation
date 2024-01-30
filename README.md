@@ -40,11 +40,11 @@ It is important to note that the EUDR specifies a number of responsibilities for
 
 TO BE COMPLETED
 
-In scope:
+**In scope:**
 1. Data exchange solution candidate for transmitting dynamic data (e.g. quantity, country of production, geolocation) as required in EU (2023) § 9, including syntax, fields and values.
 2. Data exchange solution candidate for transmitting static data (e.g. product name and description or name and postal address of operators) as required in EU (2023) § 9, including fields and values.
 
-Out of scope:
+**Out of scope:**
 1. Advice regarding the collection of information, data and documents as per EU (2023) § 9 as such.
 2. Specification of upstream or downstream data structures (e.g. EPCIS events) that are able to convey data to support the obligations indicated under (A).
 3. Advice regarding risk assessment as per EU (2023) § 10.
