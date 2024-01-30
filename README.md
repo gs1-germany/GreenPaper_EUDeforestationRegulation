@@ -27,7 +27,7 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 6. Cattle
 7. Rubber
 
-Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
+Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2) (i.e., derivates made from [the above mentioned]) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU or if it processes cocoa powder within the EU, it must comply with this regulation.
 
 ### In scope/out of scope
 
@@ -36,7 +36,7 @@ It is important to note that the EUDR specifies a number of responsibilities for
 1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, § 3)
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
 3. Perform due diligence for each affected supplier (EU 2023, § 8), including the collection of information, data and documents (EU 2023, § 9), risk assessments (EU 2023, § 10), and risk mitigation measures (EU 2023, § 11).
-4. 
+4. Make available traceability data needed for due diligence statement to downstream business partners
 
 TO BE COMPLETED
 
@@ -290,4 +290,5 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
 of 31 May 2023 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation and repealing Regulation (EU) No 995/2010, Official Journal of the European Union, June 2023*. Retrieved from [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115)
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
+- EU observatory on deforestation and forest degradation (?) [(https://forest-observatory.ec.europa.eu/forest/)](https://forest-observatory.ec.europa.eu/forest/)  
 - ...
