@@ -116,12 +116,14 @@ TBD: Provide example of data structure which can be accessed e.g. through GS1 Re
         "@vocab": "https://gs1.org/voc/"
     },
     "@type": "gs1:Organization",
+    "@id": "https://id.gs1.org/417/4000001000005",
     "organizationName": [
         {
             "@value": "Example Company",
             "@language": "en"
         }
     ],
+    "globalLocationNumber": "4000001000005",
     "address": [
         {
             "streetAddress": [
