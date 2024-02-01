@@ -112,92 +112,8 @@ INPUT ELI (BRIEF DESCRIPTION)
 ### Master data vs. event data
 
 Explain that the above DDS consists of:
-- Product, organisation and location master data (static)
 - Visibility data (dynamic)
-
-### Master Data
-
-IDEE: Drei Tabellen mit geforderten Infos gemäß EUDR
-a. Product Master Data
-b. Location Master Data
-c. Party Master Data
-
-#### Product master data
-
-eudr:hsCode
-
-eudr:commodityDescription
-
-eudr:scientificName
-
-eudr:commonName
-
-TBD: GS1 Web Voc format (+ Bsp.)?
-
-#### Location master data
-
-TBD: In this section, we COULD indicate that if a given field has a defined polygon, a master data service (e.g. the GS1 Registry) could store/provide this polygon and further ease data provision.
-
-#### Party master data
-
-§9: 
-"(e) the name, postal address and email address of any business or person from whom they have been supplied with the relevant products;
-(f) the name, postal address and email address of any business, operator or trader to whom the relevant products have been supplied;
-
-TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
-
-```json
-{
-    "@context": {
-        "gs1": "https://gs1.org/voc/",
-        "xsd": "https://www.w3.org/2001/XMLSchema#",
-        "@vocab": "https://gs1.org/voc/"
-    },
-    "@type": "gs1:Organization",
-    "@id": "https://id.gs1.org/417/4000001000005",
-    "organizationName": [
-        {
-            "@value": "Example Company",
-            "@language": "en"
-        }
-    ],
-    "globalLocationNumber": "4000001000005",
-    "address": [
-        {
-            "streetAddress": [
-                {
-                    "@value": "Sample Street 123",
-                    "@language": "en"
-                }
-            ],
-            "addressLocality": [
-                {
-                    "@value": "Sample City",
-                    "@language": "en"
-                }
-            ],
-            "postalCode": "12345",
-            "addressCountry": {
-                "countryCode": "DE",
-                "@type": "gs1:Country"
-            },
-            "@type": "gs1:PostalAddress"
-        }
-    ],
-    "contactPoint": [
-        {
-            "contactType": [
-                {
-                    "@value": "Customer Support",
-                    "@language": "en"
-                }
-            ],
-            "email": "info@example.com",
-            "@type": "gs1:ContactPoint"
-        }
-    ]
-}
-```
+- Product, organisation and location master data (static)
 
 ### Event data
 
@@ -365,6 +281,90 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
 		</EventList>
 	</EPCISBody>
 </epcis:EPCISDocument>
+```
+
+### Master Data
+
+IDEE: Drei Tabellen mit geforderten Infos gemäß EUDR
+a. Product Master Data
+b. Location Master Data
+c. Party Master Data
+
+#### Product master data
+
+eudr:hsCode
+
+eudr:commodityDescription
+
+eudr:scientificName
+
+eudr:commonName
+
+TBD: GS1 Web Voc format (+ Bsp.)?
+
+#### Location master data
+
+TBD: In this section, we COULD indicate that if a given field has a defined polygon, a master data service (e.g. the GS1 Registry) could store/provide this polygon and further ease data provision.
+
+#### Party master data
+
+§9: 
+"(e) the name, postal address and email address of any business or person from whom they have been supplied with the relevant products;
+(f) the name, postal address and email address of any business, operator or trader to whom the relevant products have been supplied;
+
+TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
+
+```json
+{
+    "@context": {
+        "gs1": "https://gs1.org/voc/",
+        "xsd": "https://www.w3.org/2001/XMLSchema#",
+        "@vocab": "https://gs1.org/voc/"
+    },
+    "@type": "gs1:Organization",
+    "@id": "https://id.gs1.org/417/4000001000005",
+    "organizationName": [
+        {
+            "@value": "Example Company",
+            "@language": "en"
+        }
+    ],
+    "globalLocationNumber": "4000001000005",
+    "address": [
+        {
+            "streetAddress": [
+                {
+                    "@value": "Sample Street 123",
+                    "@language": "en"
+                }
+            ],
+            "addressLocality": [
+                {
+                    "@value": "Sample City",
+                    "@language": "en"
+                }
+            ],
+            "postalCode": "12345",
+            "addressCountry": {
+                "countryCode": "DE",
+                "@type": "gs1:Country"
+            },
+            "@type": "gs1:PostalAddress"
+        }
+    ],
+    "contactPoint": [
+        {
+            "contactType": [
+                {
+                    "@value": "Customer Support",
+                    "@language": "en"
+                }
+            ],
+            "email": "info@example.com",
+            "@type": "gs1:ContactPoint"
+        }
+    ]
+}
 ```
 
 ## Contributors
