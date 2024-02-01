@@ -9,6 +9,10 @@ GS1 Germany Green Paper on how the requirements of the EUDR can be met with GS1 
 
 THIS DOCUMENT IS A GS1 GERMANY GREEN PAPER ONLY, NOT A RATIFIED APPLICATION STANDARD OR IMPLEMENTATION GUIDELINE APPROVED BY ANY GS1/GS1 GERMANY BOARD OR COMMITTEE. ITS PURPOSE IS TO STIMULATE DISCUSSION AND TO PAVE THE WAY FOR DEVELOPING A SOLUTION APPROACH FOR MEETING EUDR REQUIREMENTS USING GS1 STANDARDS. IT ALSO AIMS TO CONTRIBUTE TO FUTURE GS1 STANDARDISATION EFFORTS IN THIS AREA.
 
+## Status of this document
+
+DRAFT
+
 ## Introduction
 
 ### Synopsis of the EUDR
@@ -29,6 +33,12 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 
 Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
 
+### Affected parties
+
+INPUT ELI
+
+operators, traders
+
 ### In scope/out of scope
 
 It is important to note that the EUDR specifies a number of responsibilities for companies importing the mentioned commodities into the EU market, most notably (no claim to completeness):
@@ -41,30 +51,58 @@ It is important to note that the EUDR specifies a number of responsibilities for
 TO BE COMPLETED
 
 **In scope:**
-1. Data exchange solution candidate for transmitting dynamic data (e.g. quantity, country of production, geolocation) as required in EU (2023) § 9, including syntax, fields and values.
-2. Data exchange solution candidate for transmitting static data (e.g. product name and description or name and postal address of operators) as required in EU (2023) § 9, including fields and values.
+
+1. Solution candidate for passing through EUDR-relevant data between affected parties (e.g. from an exporter to an importer) in a harmonised manner, as required e.g. for information collection, risk assessment and the compilation of the due diligence statement.
+2. Solution candidate for exchanging EUDR-relevant data between independent traceability and EUDR systems.
+3. Message structure proposal for transmitting dynamic data (e.g. quantity, country of production, geolocation) as required in EU (2023) § 9.
+4. Message structure proposal for transmitting static data (e.g. product name and description or name and postal address of operators) as required in EU (2023) § 9.
 
 **Out of scope:**
+
 1. Advice regarding the collection of information, data and documents as per EU (2023) § 9 as such.
-2. Specification of upstream or downstream data structures (e.g. EPCIS events) that are able to convey data to support the obligations indicated under (A).
+2. Specification of upstream or downstream traceability data structures (e.g. EPCIS events).
 3. Advice regarding risk assessment as per EU (2023) § 10.
 4. Procedures and measures for risk mitigation as per EU (2023) § 11.
 5. Specification of the EU Due Diligence Statement message.
 6. Mapping of the EPCIS Origin Declaration Event to the EU Due Diligence Statement.
-7. Any other subject not explicily mentioned to be in scope.
+7. Questionnaire for suppliers for gathering relevant data.
+8. Any other subject not explicily mentioned to be in scope.
+
+Note that GS1/GS1 Germany may provide support regarding several of the above-mentioned matters in future documents or standardisation activities.
 
 ## Potential solution approach
 
 ### Overview
 
-The suggested solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, growers of the above-mentioned commodities only need to capture one concise electronic message ('EPCIS Origin Declaration Event'), which in turn can be transformed into a corresponding due diligence message (thereby e.g. enriched with appropriate master data according to the EU's requirements) and sent to the API endpoint which will be specified by the EU. As many growers already share their traceability data via data exchange platforms, this data processing step can be performed by their respective platform providers.
+The suggested solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, the recommended data structures may be applied whenever there is a need to share EUDR-relevant data between different companies and information systems. A common data sharing approach can save affected parties significant time and costs.
 
-The beauty of this approach consists in the fact that this 'EPCIS Origin Declaration Event' is only a derivate of already existing visibility (e.g. harvesting, transformation) events. Further, if providers of traceability platforms take care of transmitting the due diligence statements to the EU in a consolidated manner, growers need to indicate their product/location/party master data only once rather than repeating the latter in each and every message. Thus, they can focus on providing just the few additional dynamic properties (e.g. acreage polygons) as required by the regulation. In addition, the respective platform providers can check whether the provided data is complete as well as fulfils the legal requirements.
+At its core, GS1's recommendation is about a concise electronic message ('EPCIS Origin Declaration Event') for transmitting dynamic data, which should be accompanied by an appropriate means to share master data.
 
-The following, simplified picture illustrates the solution approach, taking the example of a manufacturer of a product for which the latter uses commodities provided by various suppliers.
+The following illustrations help to understand in which cases the solution approach candidate (referred to as 'GS1 Rec.') is applicable.
 
-![Solution approach illustration](./images/EUDR_SolutionApproachDrawing.jpg "Solution approach illustration")
-*Figure 1: Simplified illustration of solution candidate scope*
+**Case 1: Party which needs to receive and hand over EUDR-relevant data**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 1](./images/EUDR_Scenario1.jpg "Case 1")
+*Figure 1: Application scenario 1*
+
+**Case 2: Several systems requiring to share EUDR-relevant data**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 2](./images/EUDR_Scenario2.jpg "Case 2")
+*Figure 2: Application scenario 2*
+
+**Case 3: First party aggregating upstream EUDR-relevant data**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 3](./images/EUDR_Scenario3.jpg "Case 3")
+*Figure 3: Application scenario 3*
+
+**Case 4: One common traceability and EUDR system used by all parties concerned**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 4](./images/EUDR_Scenario4.jpg "Case 4")
+*Figure 4: Application scenario 4*
 
 ### Due Diligence Statement
 
@@ -74,8 +112,176 @@ The following, simplified picture illustrates the solution approach, taking the 
 ### Master data vs. event data
 
 Explain that the above DDS consists of:
-- Product, organisation and location master data (static)
 - Visibility data (dynamic)
+- Product, organisation and location master data (static)
+
+### Event data
+
+#### Preliminary remark
+
+Note that none of the specified EPCIS user extension fields are standardised yet. This is why the latter are declared under the `example` namespace.
+
+Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
+
+#### Design considerations
+
+- e.g. each EPCIS event is related to (one?) specific product (TBD)
+
+#### EPCIS 2.0 JSON/JSON-LD example
+
+```json
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/2.0.0/epcis-context.jsonld",
+    {
+      "eudr": "https://ns.eudr.example.com"
+    }
+  ],
+  "type": "EPCISDocument",
+  "schemaVersion": "2.0",
+  "creationDate": "2024-01-20T03:00:00.000+02:00",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-01-20T03:00:00+02:00",
+        "eventTimeZoneOffset": "+02:00",
+        "action": "OBSERVE",
+        "bizStep": "https://example.com/bizStep/declaring_origin",
+        "readPoint": {
+          "id": "https://id.gs1.org/414/4000001100002"
+        },
+        "bizTransactionList": [
+          {
+            "type": "https://example.com/btt/dueDiligenceStatementNumber",
+            "bizTransaction": "https://epcis.example.com/user/vocab/bt/DDS.123"
+          },
+          {
+            "type": "po",
+            "bizTransaction": "urn:epcglobal:cbv:bt:4000001000005:PO12345"
+          }
+        ],
+        "quantityList": [
+          {
+            "epcClass": "https://id.gs1.org/01/04000044001236/10/BATCH123",
+            "quantity": 50,
+            "uom": "KGM"
+          }
+        ],
+        "eudr:countryList": {
+          "eudr:country": "CO"
+        },
+        "eudr:eoriNumber": "DE12345678912345",
+        "eudr:originList": {
+          "eudr:originDetails": [
+            {
+              "eudr:areaSize": {
+                "eudr:value": "100",
+                "eudr:unitCode": "HAR"
+              },
+              "eudr:producerIdentification": {
+                "eudr:producer": "Farmer ABC"
+              },
+              "eudr:geofence": "[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]"
+            },
+            {
+              "eudr:geolocation": "geo:50.942499,6.898247",
+              "eudr:areaSize": {
+                "eudr:value": "2.5",
+                "eudr:unitCode": "HAR"
+              },
+              "eudr:producerIdentification": {
+                "eudr:producer": "Farmer DEF"
+              }
+            }
+          ]
+        },
+        "eudr:harvestDateStart": "2024-01-20",
+        "eudr:harvestDateEnd": "2024-01-18",
+        "eudr:partyGLN": "https://id.gs1.org/417/4000001000005"
+      }
+    ]
+  }
+}
+```
+
+#### EPCIS 2.0 XML example
+
+```xml
+<epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2024-01-20T03:00:00.000+02:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
+	<EPCISBody>
+		<EventList>
+			<ObjectEvent>
+				<!-- Date and time when declaration was made. Should be equal or lower than harvestEndDate -->
+				<eventTime>2024-01-20T03:00:00.000+02:00</eventTime>
+				<eventTimeZoneOffset>+02:00</eventTimeZoneOffset>
+				<action>OBSERVE</action>
+				<bizStep>https://example.com/bizStep/declaring_origin</bizStep>
+				<!-- Identifies the supplier's place of business (e.g. headquarters). Usually corresponds with operator's Party GLN, see eudr:operatorID -->
+				<readPoint>
+					<id>https://id.gs1.org/414/4000001100002</id>
+				</readPoint>
+				<bizTransactionList>
+					<!-- TBD: most suitable URI notation. URN-based URI vs. HTTPS URIs, CBV 2.0, 8.5.3 vs. 8.5.5 -->
+					<bizTransaction type="https://example.com/btt/dueDiligenceStatementNumber">https://epcis.example.com/user/vocab/bt/DDS.123</bizTransaction>
+					<!-- (Optional) Business transaction reference(s) e.g., purchase order number for later mapping -->
+					<bizTransaction type="https://ref.gs1.org/cbv/BTT-po">urn:epcglobal:cbv:bt:4000001000005:PO12345</bizTransaction>
+				</bizTransactionList>
+				<!-- Identification of the supplied product via GTIN (and batch) and its quantity -->
+				<quantityList>
+					<quantityElement>
+						<epcClass>https://id.gs1.org/01/04000044001236/10/BATCH123</epcClass>
+						<quantity>50</quantity>
+						<uom>KGM</uom>
+					</quantityElement>
+				</quantityList>
+				<!-- TBD: Use GS1 Web Voc (if applicable) or proceed with eudr user extensions for the time being? -->
+				<eudr:harvestDateStart>2024-01-20</eudr:harvestDateStart>
+				<eudr:harvestDateEnd>2024-01-18</eudr:harvestDateEnd>
+				<!-- Own EORI (Economic Operators Registration and Identification) number -->
+				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
+				<!-- (Optional) Party GLN identifying operator who makes the statement -->
+				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
+				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
+				<eudr:countryList>
+					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
+					<eudr:country>CO</eudr:country>
+				</eudr:countryList>
+				<!-- Origin information -->
+				<eudr:originList>
+					<!-- 1 or more occurrences (one container = one geolocation or polygon) -->
+					<eudr:originDetails>
+						<!-- Identification of the plot of land via polygon -->
+						<!-- See also: https://ref.gs1.org/standards/cbv/#page=118 -->
+						<eudr:geofence>[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]</eudr:geofence>
+						<!-- Optional area size -->
+						<eudr:areaSize>
+							<eudr:value>100</eudr:value>
+							<eudr:unitCode>HAR</eudr:unitCode>
+						</eudr:areaSize>
+						<!-- Optional producer/farmer information -->
+						<eudr:producerIdentification>
+							<!-- TBD: really freetext or proper ID? -->
+							<eudr:producer>Farmer ABC</eudr:producer>
+						</eudr:producerIdentification>
+					</eudr:originDetails>
+					<eudr:originDetails>
+						<!-- Identification of the plot of land via geolocation -->
+						<eudr:geolocation>geo:50.942499,6.898247</eudr:geolocation>
+						<eudr:areaSize>
+							<eudr:value>2.5</eudr:value>
+							<eudr:unitCode>HAR</eudr:unitCode>
+						</eudr:areaSize>
+						<eudr:producerIdentification>
+							<eudr:producer>Farmer DEF</eudr:producer>
+						</eudr:producerIdentification>
+					</eudr:originDetails>
+				</eudr:originList>
+			</ObjectEvent>
+		</EventList>
+	</EPCISBody>
+</epcis:EPCISDocument>
+```
 
 ### Master Data
 
@@ -161,180 +367,12 @@ TBD: Provide example of data structure which can be accessed e.g. through GS1 Re
 }
 ```
 
-### Event data
-
-#### Preliminary remark
-
-Note that none of the specified EPCIS user extension fields are standardised yet. This is why the latter are declared under the `example` namespace.
-
-Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
-
-#### Design considerations
-
-- e.g. each EPCIS event is related to (one?) specific product (TBD) 
-
-#### EPCIS 2.0 XML example
-
-```xml
-<epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2024-01-20T03:00:00.000+02:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
-	<EPCISBody>
-		<EventList>
-			<ObjectEvent>
-				<!-- Date and time when declaration was made. Should be equal or lower than harvestEndDate -->
-				<eventTime>2024-01-20T03:00:00.000+02:00</eventTime>
-				<eventTimeZoneOffset>+02:00</eventTimeZoneOffset>
-				<action>OBSERVE</action>
-				<bizStep>https://example.com/bizStep/declaring_origin</bizStep>
-				<!-- Identifies the supplier's place of business (e.g. headquarters). Usually corresponds with operator's Party GLN, see eudr:operatorID -->
-				<readPoint>
-					<id>https://id.gs1.org/414/4000001100002</id>
-				</readPoint>
-				<bizTransactionList>
-					<!-- TBD: most suitable URI notation. URN-based URI vs. HTTPS URIs, CBV 2.0, 8.5.3 vs. 8.5.5 -->
-					<bizTransaction type="https://example.com/btt/dueDiligenceStatementNumber">https://epcis.example.com/user/vocab/bt/DDS.123</bizTransaction>
-					<!-- (Optional) Business transaction reference(s) e.g., purchase order number for later mapping -->
-					<bizTransaction type="https://ref.gs1.org/cbv/BTT-po">urn:epcglobal:cbv:bt:4000001000005:PO12345</bizTransaction>
-				</bizTransactionList>
-				<!-- Identification of the supplied product via GTIN (and batch) and its quantity -->
-				<quantityList>
-					<quantityElement>
-						<epcClass>https://id.gs1.org/01/04000044001236/10/BATCH123</epcClass>
-						<quantity>50</quantity>
-						<uom>KGM</uom>
-					</quantityElement>
-				</quantityList>
-				<!-- TBD: Use GS1 Web Voc (if applicable) or proceed with eudr user extensions for the time being? -->
-				<eudr:harvestDateStart>2024-01-20</eudr:harvestDateStart>
-				<eudr:harvestDateEnd>2024-01-18</eudr:harvestDateEnd>
-				<!-- Own EORI (Economic Operators Registration and Identification) number -->
-				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
-				<!-- (Optional) Party GLN identifying operator who makes the statement -->
-				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
-				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
-				<eudr:countryList>
-					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
-					<eudr:country>CO</eudr:country>
-				</eudr:countryList>
-				<!-- Origin information -->
-				<eudr:originList>
-					<!-- 1 or more occurrences (one container = one geolocation or polygon) -->
-					<eudr:originDetails>
-						<!-- Identification of the plot of land via polygon -->
-						<!-- See also: https://ref.gs1.org/standards/cbv/#page=118 -->
-						<eudr:geofence>[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]</eudr:geofence>
-						<!-- Optional area size -->
-						<eudr:areaSize>
-							<eudr:value>100</eudr:value>
-							<eudr:unitCode>HAR</eudr:unitCode>
-						</eudr:areaSize>
-						<!-- Optional producer/farmer information -->
-						<eudr:producerIdentification>
-							<!-- TBD: really freetext or proper ID? -->
-							<eudr:producer>Farmer ABC</eudr:producer>
-						</eudr:producerIdentification>
-					</eudr:originDetails>
-					<eudr:originDetails>
-						<!-- Identification of the plot of land via geolocation -->
-						<eudr:geolocation>geo:50.942499,6.898247</eudr:geolocation>
-						<eudr:areaSize>
-							<eudr:value>2.5</eudr:value>
-							<eudr:unitCode>HAR</eudr:unitCode>
-						</eudr:areaSize>
-						<eudr:producerIdentification>
-							<eudr:producer>Farmer DEF</eudr:producer>
-						</eudr:producerIdentification>
-					</eudr:originDetails>
-				</eudr:originList>
-			</ObjectEvent>
-		</EventList>
-	</EPCISBody>
-</epcis:EPCISDocument>
-```
-
-#### EPCIS 2.0 JSON/JSON-LD example
-
-```json
-{
-  "@context": [
-    "https://ref.gs1.org/standards/epcis/2.0.0/epcis-context.jsonld",
-    {
-      "eudr": "https://ns.eudr.example.com"
-    }
-  ],
-  "type": "EPCISDocument",
-  "schemaVersion": "2.0",
-  "creationDate": "2024-01-20T03:00:00.000+02:00",
-  "epcisBody": {
-    "eventList": [
-      {
-        "type": "ObjectEvent",
-        "eventTime": "2024-01-20T03:00:00+02:00",
-        "eventTimeZoneOffset": "+02:00",
-        "action": "OBSERVE",
-        "bizStep": "https://example.com/bizStep/declaring_origin",
-        "readPoint": {
-          "id": "https://id.gs1.org/414/4000001100002"
-        },
-        "bizTransactionList": [
-          {
-            "type": "https://example.com/btt/dueDiligenceStatementNumber",
-            "bizTransaction": "https://epcis.example.com/user/vocab/bt/DDS.123"
-          },
-          {
-            "type": "po",
-            "bizTransaction": "urn:epcglobal:cbv:bt:4000001000005:PO12345"
-          }
-        ],
-        "quantityList": [
-          {
-            "epcClass": "https://id.gs1.org/01/04000044001236/10/BATCH123",
-            "quantity": 50,
-            "uom": "KGM"
-          }
-        ],
-        "eudr:countryList": {
-          "eudr:country": "CO"
-        },
-        "eudr:eoriNumber": "DE12345678912345",
-        "eudr:originList": {
-          "eudr:originDetails": [
-            {
-              "eudr:areaSize": {
-                "eudr:value": "100",
-                "eudr:unitCode": "HAR"
-              },
-              "eudr:producerIdentification": {
-                "eudr:producer": "Farmer ABC"
-              },
-              "eudr:geofence": "[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]"
-            },
-            {
-              "eudr:geolocation": "geo:50.942499,6.898247",
-              "eudr:areaSize": {
-                "eudr:value": "2.5",
-                "eudr:unitCode": "HAR"
-              },
-              "eudr:producerIdentification": {
-                "eudr:producer": "Farmer DEF"
-              }
-            }
-          ]
-        },
-        "eudr:harvestDateStart": "2024-01-20",
-        "eudr:harvestDateEnd": "2024-01-18",
-        "eudr:partyGLN": "https://id.gs1.org/417/4000001000005"
-      }
-    ]
-  }
-}
-```
-
 ## Contributors
 
 | Name                   | Affiliation              | Job Title              |
 | ---------------------- | ------------------------ | ---------------------- |
 | Dr Ralph Troeger       | GS1 Germany              | Senior Manager AIDC    |
-| TBC: Elisabeth Kikidis | GS1 Germany              | Senior Manager AIDC    |
+| Elisabeth Kikidis      | GS1 Germany              | Senior Manager AIDC    |
 | TBC: Sabine Klaeser    | GS1 Germany              | Senior Manager AIDC    |
 | TBC: Frank Kuhlmann    | GS1 Germany              | Lead AIDC              |
 
