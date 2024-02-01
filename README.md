@@ -70,14 +70,35 @@ Note that GS1/GS1 Germany may provide support regarding several of the above-men
 
 ### Overview
 
-The suggested solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, growers of the above-mentioned commodities only need to capture one concise electronic message ('EPCIS Origin Declaration Event'), which in turn can be transformed into a corresponding due diligence message (thereby e.g. enriched with appropriate master data according to the EU's requirements) and sent to the API endpoint which will be specified by the EU. As many growers already share their traceability data via data exchange platforms, this data processing step can be performed by their respective platform providers.
+The suggested solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, the recommended data structures may be applied whenever there is a need to share EUDR-relevant data between different companies and information systems. A common data sharing approach can save affected parties significant time and costs.
 
-The beauty of this approach consists in the fact that this 'EPCIS Origin Declaration Event' is only a derivate of already existing visibility (e.g. harvesting, transformation) events. Further, if providers of traceability platforms take care of transmitting the due diligence statements to the EU in a consolidated manner, growers need to indicate their product/location/party master data only once rather than repeating the latter in each and every message. Thus, they can focus on providing just the few additional dynamic properties (e.g. acreage polygons) as required by the regulation. In addition, the respective platform providers can check whether the provided data is complete as well as fulfils the legal requirements.
+At its core, GS1's recommendation is about a concise electronic message ('EPCIS Origin Declaration Event') for transmitting dynamic data, which should be accompanied by an appropriate means to share master data.
 
-The following, simplified picture illustrates the solution approach, taking the example of a manufacturer of a product for which the latter uses commodities provided by various suppliers.
+The following illustrations help to understand in which cases the solution approach candidate (referred to as 'GS1 Rec.') is applicable.
 
-![Solution approach illustration](./images/EUDR_SolutionApproachDrawing.jpg "Solution approach illustration")
-*Figure 1: Simplified illustration of solution candidate scope*
+**Case 1: Party which needs to receive and hand over EUDR-relevant data**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 1](./images/EUDR_Scenario1.jpg "Case 1")
+*Figure 1: Application scenario 1*
+
+**Case 2: Several systems requiring to share EUDR-relevant data**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 2](./images/EUDR_Scenario2.jpg "Case 2")
+*Figure 2: Application scenario 2*
+
+**Case 3: First party aggregating upstream EUDR-relevant data**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 3](./images/EUDR_Scenario3.jpg "Case 3")
+*Figure 3: Application scenario 3*
+
+**Case 4: One common traceability and EUDR system used by all parties concerned**
+INPUT ELI (BRIEF DESCRIPTION)
+
+![Case 4](./images/EUDR_Scenario4.jpg "Case 4")
+*Figure 4: Application scenario 4*
 
 ### Due Diligence Statement
 
