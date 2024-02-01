@@ -56,12 +56,15 @@ TO BE COMPLETED
 **Out of scope:**
 
 1. Advice regarding the collection of information, data and documents as per EU (2023) § 9 as such.
-2. Specification of upstream or downstream data structures (e.g. EPCIS events) that are able to convey data to support the obligations indicated under (A).
+2. Specification of upstream or downstream traceability data structures (e.g. EPCIS events).
 3. Advice regarding risk assessment as per EU (2023) § 10.
 4. Procedures and measures for risk mitigation as per EU (2023) § 11.
 5. Specification of the EU Due Diligence Statement message.
 6. Mapping of the EPCIS Origin Declaration Event to the EU Due Diligence Statement.
-7. Any other subject not explicily mentioned to be in scope.
+7. Questionnaire for suppliers for gathering relevant data.
+8. Any other subject not explicily mentioned to be in scope.
+
+Note that GS1/GS1 Germany may provide support regarding several of the above-mentioned matters in future documents or standardisation activities.
 
 ## Potential solution approach
 
