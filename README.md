@@ -29,6 +29,12 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 
 Products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2) fall under the legislation. Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
 
+### Affected parties
+
+INPUT ELI
+
+operators, traders
+
 ### In scope/out of scope
 
 It is important to note that the EUDR specifies a number of responsibilities for companies importing the mentioned commodities into the EU market, most notably (no claim to completeness):
