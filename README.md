@@ -47,10 +47,14 @@ It is important to note that the EUDR specifies a number of responsibilities for
 TO BE COMPLETED
 
 **In scope:**
-1. Data exchange solution candidate for transmitting dynamic data (e.g. quantity, country of production, geolocation) as required in EU (2023) § 9, including syntax, fields and values.
-2. Data exchange solution candidate for transmitting static data (e.g. product name and description or name and postal address of operators) as required in EU (2023) § 9, including fields and values.
+
+1. Solution candidate for passing through EUDR-relevant data between affected parties (e.g. from an exporter to an importer) in a harmonised manner, as required e.g. for information collection, risk assessment and the compilation of the due diligence statement.
+2. Solution candidate for exchanging EUDR-relevant data between independent traceability and EUDR systems.
+3. Message structure proposal for transmitting dynamic data (e.g. quantity, country of production, geolocation) as required in EU (2023) § 9.
+4. Message structure proposal for transmitting static data (e.g. product name and description or name and postal address of operators) as required in EU (2023) § 9.
 
 **Out of scope:**
+
 1. Advice regarding the collection of information, data and documents as per EU (2023) § 9 as such.
 2. Specification of upstream or downstream data structures (e.g. EPCIS events) that are able to convey data to support the obligations indicated under (A).
 3. Advice regarding risk assessment as per EU (2023) § 10.
