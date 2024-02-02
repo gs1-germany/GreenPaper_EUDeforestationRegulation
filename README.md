@@ -313,9 +313,23 @@ TBD: In this section, we COULD indicate that if a given field has a defined poly
 
 #### Party master data
 
-§9: 
-"(e) the name, postal address and email address of any business or person from whom they have been supplied with the relevant products;
-(f) the name, postal address and email address of any business, operator or trader to whom the relevant products have been supplied;
+According to the EUDR (EU 2023, §9), affected parties need to have a recored of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
+
+Hence, a simple party master data record should comprise at least the following data:
+
+| Field name             | Data type              | Description Title              |
+| ---------------------- | ---------------------- | ------------------------------ |
+| organizationName       | Language-tagged string | (Required) See [https://www.gs1.org/voc/organizationName]    |
+| globalLocationNumber   | String                 | (Required) See [https://www.gs1.org/voc/globalLocationNumber]    |
+| address                | Address (wrapper)      | (Required) See [https://www.gs1.org/voc/PostalAddress]    |
+| _streetAddress         | Language-tagged string | (Required) See [https://www.gs1.org/voc/streetAddress]    |
+| _addressLocality       | Language-tagged string | (Required) See [https://www.gs1.org/voc/addressLocality]  |
+| _postalCode            | String                 | (Required) See [https://www.gs1.org/voc/postalCode]       |
+| _addressCountry        | Country (wrapper)      | (Required) See [https://www.gs1.org/voc/addressCountry]   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [https://www.gs1.org/voc/countryCode] |
+| contactPoint           | ContactPoint (wrapper) | (Required) See [https://www.gs1.org/voc/contactPoint] |
+| _contactType           | Language-tagged string | (Optional) See [https://www.gs1.org/voc/contactType]  |
+| _email                 | String                 | (Required) See [https://www.gs1.org/voc/email]  |
 
 TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
 
@@ -387,4 +401,4 @@ TBD: Provide example of data structure which can be accessed e.g. through GS1 Re
 of 31 May 2023 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation and repealing Regulation (EU) No 995/2010, Official Journal of the European Union, June 2023*. Retrieved from [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115)
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
-- ...
+- GS1 (2023). *GS1 Web Vocabulary*, Version 1.9, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
