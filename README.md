@@ -48,8 +48,8 @@ It is important to note that the EUDR specifies a number of responsibilities for
 1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, § 3)
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
 3. Perform due diligence for each affected product/supplier (EU 2023, § 8), including the collection of information, data and documents (EU 2023, § 9), risk assessments (EU 2023, § 10), and risk mitigation measures (EU 2023, § 11).
-4. Keep (for five years) all relevant data like product description, quantity, country of production, geolocation of plots where relevant commodities were produced, date/time range of harvest/production. [ADD QUOTE]
-5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the reference numbers of the due diligence statements associated. [ADD QUOTE]
+4. Keep (for five years) all relevant data like product description, quantity, country of production, geolocation of plots where relevant commodities were produced as well as date/time range of harvest/production. [EU 2023, § 9.1]
+5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the coresponding reference numbers of the due diligence statements. [EU 2023, § 4.7]
 
 Note that trading companies making relevant commodities and products available on the EU market also have to fulfill a number of obligations. The latter are partly similar to the ones stated above.
 
