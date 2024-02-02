@@ -64,7 +64,7 @@ TO BE COMPLETED
 3. Advice regarding risk assessment as per EU (2023) § 10.
 4. Procedures and measures for risk mitigation as per EU (2023) § 11.
 5. Specification of the EU Due Diligence Statement message.
-6. Mapping of the EPCIS Origin Declaration Event to the EU Due Diligence Statement.
+6. Mapping of GS1 data structures to the EU Due Diligence Statement.
 7. Questionnaire for suppliers for gathering relevant data.
 8. Any other subject not explicily mentioned to be in scope.
 
