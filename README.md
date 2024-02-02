@@ -132,6 +132,13 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
 
 - e.g. each EPCIS event is related to (one?) specific product (TBD)
 
+#### Event data structure
+
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| eventTime              | Date Time Stamp        | (Required) See [https://ref.gs1.org/epcis/eventTime](https://ref.gs1.org/epcis/eventTime)    |
+
+
 #### EPCIS 2.0 JSON/JSON-LD example
 
 ```json
@@ -319,17 +326,17 @@ Hence, a simple party master data record should comprise at least the following 
 
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
-| organizationName       | Language-tagged string | (Required) See [https://www.gs1.org/voc/organizationName]    |
-| globalLocationNumber   | String                 | (Required) See [https://www.gs1.org/voc/globalLocationNumber]    |
-| address                | Address (wrapper)      | (Required) See [https://www.gs1.org/voc/PostalAddress]    |
-| _streetAddress         | Language-tagged string | (Required) See [https://www.gs1.org/voc/streetAddress]    |
-| _addressLocality       | Language-tagged string | (Required) See [https://www.gs1.org/voc/addressLocality]  |
-| _postalCode            | String                 | (Required) See [https://www.gs1.org/voc/postalCode]       |
-| _addressCountry        | Country (wrapper)      | (Required) See [https://www.gs1.org/voc/addressCountry]   |
-| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [https://www.gs1.org/voc/countryCode] |
-| contactPoint           | ContactPoint (wrapper) | (Required) See [https://www.gs1.org/voc/contactPoint] |
-| _contactType           | Language-tagged string | (Optional) See [https://www.gs1.org/voc/contactType]  |
-| _email                 | String                 | (Required) See [https://www.gs1.org/voc/email]  |
+| organizationName       | Language-tagged string | (Required) See [https://www.gs1.org/voc/organizationName]()    |
+| globalLocationNumber   | String                 | (Required) See [https://www.gs1.org/voc/globalLocationNumber]()    |
+| address                | Address (wrapper)      | (Required) See [https://www.gs1.org/voc/PostalAddress]()    |
+| _streetAddress         | Language-tagged string | (Required) See [https://www.gs1.org/voc/streetAddress]()    |
+| _addressLocality       | Language-tagged string | (Required) See [https://www.gs1.org/voc/addressLocality]()  |
+| _postalCode            | String                 | (Required) See [https://www.gs1.org/voc/postalCode]()       |
+| _addressCountry        | Country (wrapper)      | (Required) See [https://www.gs1.org/voc/addressCountry]()   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [https://www.gs1.org/voc/countryCode]() |
+| contactPoint           | ContactPoint (wrapper) | (Required) See [https://www.gs1.org/voc/contactPoint]() |
+| _contactType           | Language-tagged string | (Optional) See [https://www.gs1.org/voc/contactType]()  |
+| _email                 | String                 | (Required) See [https://www.gs1.org/voc/email]()  |
 
 TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
 
