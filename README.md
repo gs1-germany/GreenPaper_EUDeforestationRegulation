@@ -317,7 +317,7 @@ According to the EUDR (EU 2023, §9), affected parties need to have a recored of
 
 Hence, a simple party master data record should comprise at least the following data:
 
-| Field name             | Data type              | Description Title              |
+| Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
 | organizationName       | Language-tagged string | (Required) See [https://www.gs1.org/voc/organizationName]    |
 | globalLocationNumber   | String                 | (Required) See [https://www.gs1.org/voc/globalLocationNumber]    |
