@@ -347,6 +347,23 @@ TBD: GS1 Web Voc format (+ Bsp.)?
 
 TBD: In this section, we COULD indicate that if a given field has a defined polygon, a master data service (e.g. the GS1 Registry) could store/provide this polygon and further ease data provision.
 
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| physicalLocationName   | Language-tagged string | (Required) See [physicalLocationName](https://www.gs1.org/voc/physicalLocationName)   |
+| locationGLN            | String                 | (Required) See [locationGLN](https://www.gs1.org/voc/locationGLN)    |
+| address                | Address (wrapper)      | (Required) See [PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
+| _streetAddress         | Language-tagged string | (Required) See [streetAddress](https://www.gs1.org/voc/streetAddress)    |
+| _addressLocality       | Language-tagged string | (Required) See [addressLocality](https://www.gs1.org/voc/addressLocality)  |
+| _postalCode            | String                 | (Required) See [postalCode](https://www.gs1.org/voc/postalCode)       |
+| _addressCountry        | Country (wrapper)      | (Required) See [addressCountry](https://www.gs1.org/voc/addressCountry)   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [countryCode](https://www.gs1.org/voc/countryCode) |
+| geo                    | GeoCoordinates or GeoShape | (Required) See [geo](https://www.gs1.org/voc/geo) |
+| TBD: _GeoCoordinates | | |
+| TBD: _GeoShape | | |
+| TBD: __polygon | String | |
+
+Example TBD
+
 #### Party master data
 
 According to the EUDR (EU 2023, §9), affected parties need to have a recored of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
