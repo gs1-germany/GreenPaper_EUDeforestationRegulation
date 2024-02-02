@@ -35,13 +35,15 @@ Products "...that contain, have been fed with or have been made using [the above
 
 ### Affected parties
 
-INPUT ELI
+***Operators***
+Companies who place relevant commodities/products on the Union market or exports them. 'Placing on the market’ means the first making available of a relevant commodity or relevant product on the Union market (EU 2023, § 2.15/16).
 
-operators, traders
+***Traders***
+Any party in the supply chain other than the operator who, in the course of a commercial activity, makes relevant products available on the market (like retail) (EU 2023; § 2.17).
 
 ### In scope/out of scope
 
-It is important to note that the EUDR specifies a number of responsibilities for companies placing the mentioned commodities into the EU market, most notably (no claim to completeness):
+It is important to note that the EUDR specifies a number of responsibilities for companies placing the mentioned commodities/products into the EU market, most notably (no claim to completeness):
 
 1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, § 3)
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
