@@ -132,6 +132,42 @@ Once the EPCIS event message structures are  standardised, e.g. in a GS1 applica
 
 - e.g. each EPCIS event is related to (one?) specific product (TBD)
 
+#### Event data structure
+
+The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used for the EPCIS Origin Declaration Event is an [ObjectEvent](https://ref.gs1.org/epcis/ObjectEvent). The following table specifies its containing fields.
+
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| eventTime              | Date and Time Stamp    | (Required) See [eventTime](https://ref.gs1.org/epcis/eventTime)    |
+| eventTimeZoneOffset    | String                 | (Required) See [eventTimeZoneOffset](https://ref.gs1.org/epcis/eventTimeZoneOffset)   |
+| action                 | Code value (`OBSERVE`) | (Required) See [action](https://ref.gs1.org/epcis/action)    |
+| bizStep | BizStep URI (`https://example.com/bizStep/declaring_origin`) | (Required) See [bizStep](https://ref.gs1.org/epcis/bizStep)   |
+| readPoint              |  Place (Wrapper)        | (Optional) See [readPoint](https://ref.gs1.org/epcis/readPoint)   |
+| _id                    | Location ID (GS1 Digital Link URI) | (Required) |
+| bizTransactionList     | List of BizTransactions | (Optional) See [bizTransactionList](https://ref.gs1.org/epcis/bizTransactionList)     |
+| _type                  | Business Transaction Type ID (URI) | (Optional) See [bizTransactionType](https://ref.gs1.org/epcis/bizTransactionType)   |
+| _bizTransaction        | BizTransaction ID (URI) | (Required) See [BizTransaction](https://ref.gs1.org/epcis/BizTransaction)   |
+| quantityList           | List of QuantityElements | (Required) See [quantityList](https://ref.gs1.org/epcis/quantityList)   |
+| _QuantityElement       | Wrapper                 | (Required) See [QuantityElement](https://ref.gs1.org/epcis/QuantityElement)   |
+| __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcClass](https://ref.gs1.org/epcis/epcClass)   |
+| __quantity             | Decimal                | (Required) See [quantity](https://ref.gs1.org/epcis/quantity)   |
+| __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [uom](https://ref.gs1.org/epcis/uom)   |
+| countryList            |  |  |
+| _country               |  |  |
+| eoriNumber             |  |  |
+| originList             |  |  |
+| _originDetails         |  |  |
+| __areaSize             |  |  |
+| ___value               |  |  |
+| ___unitCode            |  |  |
+| __producerIdentification |  |  |
+| ___producer            |  |  |
+| __geofence             |  |  |
+| __geolocation          |  |  |
+| harvestDateStart       |  |  |
+| harvestDateEnd         |  |  |
+| partyGLN               |  |  |
+
 #### EPCIS 2.0 JSON/JSON-LD example
 
 ```json
@@ -311,11 +347,42 @@ TBD: GS1 Web Voc format (+ Bsp.)?
 
 TBD: In this section, we COULD indicate that if a given field has a defined polygon, a master data service (e.g. the GS1 Registry) could store/provide this polygon and further ease data provision.
 
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| physicalLocationName   | Language-tagged string | (Required) See [physicalLocationName](https://www.gs1.org/voc/physicalLocationName)   |
+| locationGLN            | String                 | (Required) See [locationGLN](https://www.gs1.org/voc/locationGLN)    |
+| address                | Address (wrapper)      | (Required) See [PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
+| _streetAddress         | Language-tagged string | (Required) See [streetAddress](https://www.gs1.org/voc/streetAddress)    |
+| _addressLocality       | Language-tagged string | (Required) See [addressLocality](https://www.gs1.org/voc/addressLocality)  |
+| _postalCode            | String                 | (Required) See [postalCode](https://www.gs1.org/voc/postalCode)       |
+| _addressCountry        | Country (wrapper)      | (Required) See [addressCountry](https://www.gs1.org/voc/addressCountry)   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [countryCode](https://www.gs1.org/voc/countryCode) |
+| geo                    | GeoCoordinates or GeoShape | (Required) See [geo](https://www.gs1.org/voc/geo) |
+| TBD: _GeoCoordinates | | |
+| TBD: _GeoShape | | |
+| TBD: __polygon | String | |
+
+Example TBD
+
 #### Party master data
 
-§9: 
-"(e) the name, postal address and email address of any business or person from whom they have been supplied with the relevant products;
-(f) the name, postal address and email address of any business, operator or trader to whom the relevant products have been supplied;
+According to the EUDR (EU 2023, §9), affected parties need to have a recored of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
+
+Hence, a simple party master data record should comprise at least the following data:
+
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| organizationName       | Language-tagged string | (Required) See [organizationName](https://www.gs1.org/voc/organizationName])    |
+| globalLocationNumber   | String                 | (Required) See [globalLocationNumber](https://www.gs1.org/voc/globalLocationNumber)    |
+| address                | Address (wrapper)      | (Required) See [PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
+| _streetAddress         | Language-tagged string | (Required) See [streetAddress](https://www.gs1.org/voc/streetAddress)    |
+| _addressLocality       | Language-tagged string | (Required) See [addressLocality](https://www.gs1.org/voc/addressLocality)  |
+| _postalCode            | String                 | (Required) See [postalCode](https://www.gs1.org/voc/postalCode)       |
+| _addressCountry        | Country (wrapper)      | (Required) See [addressCountry](https://www.gs1.org/voc/addressCountry)   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [countryCode](https://www.gs1.org/voc/countryCode) |
+| contactPoint           | ContactPoint (wrapper) | (Required) See [contactPoint](https://www.gs1.org/voc/contactPoint) |
+| _contactType           | Language-tagged string | (Optional) See [contactType](https://www.gs1.org/voc/contactType)  |
+| _email                 | String                 | (Required) See [email](https://www.gs1.org/voc/email)  |
 
 TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
 
@@ -387,4 +454,4 @@ TBD: Provide example of data structure which can be accessed e.g. through GS1 Re
 of 31 May 2023 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation and repealing Regulation (EU) No 995/2010, Official Journal of the European Union, June 2023*. Retrieved from [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115)
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
-- ...
+- GS1 (2023). *GS1 Web Vocabulary*, Version 1.9, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
