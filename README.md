@@ -41,7 +41,7 @@ operators, traders
 
 ### In scope/out of scope
 
-It is important to note that the EUDR specifies a number of responsibilities for companies importing the mentioned commodities into the EU market, most notably (no claim to completeness):
+It is important to note that the EUDR specifies a number of responsibilities for companies placing the mentioned commodities into the EU market, most notably (no claim to completeness):
 
 1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, § 3)
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
