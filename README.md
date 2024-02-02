@@ -68,7 +68,7 @@ TO BE COMPLETED
 7. Questionnaire for suppliers for gathering relevant data.
 8. Any other subject not explicily mentioned to be in scope.
 
-Note that GS1/GS1 Germany may provide support regarding several of the above-mentioned matters in future documents or standardisation activities.
+Note that GS1/GS1 Germany may provide support regarding several of the above-mentioned out of scope matters in future documents or standardisation activities.
 
 ## Potential solution approach
 
