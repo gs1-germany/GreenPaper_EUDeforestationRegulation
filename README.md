@@ -36,10 +36,10 @@ In addition to that, the regulation also affects products "...that contain, have
 ### Affected parties
 
 ***Operators***
-Companies who place relevant commodities/products on the Union market or exports them. 'Placing on the market’ means the first making available of a relevant commodity or relevant product on the Union market (EU 2023, § 2.15/16).
+Companies that place relevant commodities/products on the Union market or export them. 'Placing on the market’ means the first making available of a relevant commodity or relevant product on the Union market (EU 2023, § 2.15/16).
 
 ***Traders***
-Any party in the supply chain other than the operator who, in the course of a commercial activity, makes relevant products available on the market (like retail) (EU 2023; § 2.17).
+Any party in the supply chain other than the operator which, in the course of a commercial activity, makes relevant products available on the market (like retail) (EU 2023; § 2.17).
 
 ### In scope/out of scope
 
@@ -51,7 +51,7 @@ It is important to note that the EUDR specifies a number of responsibilities for
 4. Keep (for five years) all relevant data like product description, quantity, country of production, geolocation of plots where relevant commodities were produced, date/time range of harvest/production. [ADD QUOTE]
 5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the reference numbers of the due diligence statements associated. [ADD QUOTE]
 
-Note that also trading companies who make relevant commodities and products available on the market have to fulfill obligations partly similar to the above stated. [SENTENCE TO BE REFINED]
+Note that trading companies making relevant commodities and products available on the EU market also have to fulfill a number of obligations. The latter are partly similar to the ones stated above.
 
 **In scope:**
 
@@ -108,6 +108,8 @@ INPUT ELI (BRIEF DESCRIPTION)
 *Figure 4: Application scenario 4*
 
 ### Due Diligence Statement
+
+(Add note that the Due Diligence Statement does NOT contain ALL data required to collect.) [REFINE WORDING]
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 *Figure 2: Due Diligence Statement as per EU (2023), Annex II*
