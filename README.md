@@ -109,7 +109,7 @@ INPUT ELI (BRIEF DESCRIPTION)
 
 ### Due Diligence Statement
 
-(Add note that the Due Diligence Statement does NOT contain ALL data required to collect.) [REFINE WORDING]
+The following EUDR excerpt shows the required content of the Due Diligence Statement. Not that the statement as such does not contain all data affected parties are required to collect and/or record: 
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 *Figure 2: Due Diligence Statement as per EU (2023), Annex II*
