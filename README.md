@@ -138,20 +138,20 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
-| eventTime              | Date and Time Stamp    | (Required) See [eventTime](https://ref.gs1.org/epcis/eventTime)    |
-| eventTimeZoneOffset    | String                 | (Required) See [eventTimeZoneOffset](https://ref.gs1.org/epcis/eventTimeZoneOffset)   |
-| action                 | Code value (`OBSERVE`) | (Required) See [action](https://ref.gs1.org/epcis/action)    |
-| bizStep | BizStep URI (`https://example.com/bizStep/declaring_origin`) | (Required) See [bizStep](https://ref.gs1.org/epcis/bizStep)   |
-| readPoint              |  Place (Wrapper)        | (Optional) See [readPoint](https://ref.gs1.org/epcis/readPoint)   |
+| eventTime              | Date and Time Stamp    | (Required) See [epcis:eventTime](https://ref.gs1.org/epcis/eventTime)    |
+| eventTimeZoneOffset    | String                 | (Required) See [epcis:eventTimeZoneOffset](https://ref.gs1.org/epcis/eventTimeZoneOffset)   |
+| action                 | Code value (`OBSERVE`) | (Required) See [epcis:action](https://ref.gs1.org/epcis/action)    |
+| bizStep | BizStep URI (`https://example.com/bizStep/declaring_origin`) | (Required) See [epcis:bizStep](https://ref.gs1.org/epcis/bizStep)   |
+| readPoint              |  Place (Wrapper)        | (Optional) See [epcis:readPoint](https://ref.gs1.org/epcis/readPoint)   |
 | _id                    | Location ID (GS1 Digital Link URI) | (Required) |
-| bizTransactionList     | List of BizTransactions | (Optional) See [bizTransactionList](https://ref.gs1.org/epcis/bizTransactionList)     |
-| _type                  | Business Transaction Type ID (URI) | (Optional) See [bizTransactionType](https://ref.gs1.org/epcis/bizTransactionType)   |
-| _bizTransaction        | BizTransaction ID (URI) | (Required) See [BizTransaction](https://ref.gs1.org/epcis/BizTransaction)   |
-| quantityList           | List of QuantityElements | (Required) See [quantityList](https://ref.gs1.org/epcis/quantityList)   |
-| _QuantityElement       | Wrapper                 | (Required) See [QuantityElement](https://ref.gs1.org/epcis/QuantityElement)   |
-| __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcClass](https://ref.gs1.org/epcis/epcClass)   |
-| __quantity             | Decimal                | (Required) See [quantity](https://ref.gs1.org/epcis/quantity)   |
-| __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [uom](https://ref.gs1.org/epcis/uom)   |
+| bizTransactionList     | List of BizTransactions | (Optional) See [epcis:bizTransactionList](https://ref.gs1.org/epcis/bizTransactionList)     |
+| _type                  | Business Transaction Type ID (URI) | (Optional) See [epcis:bizTransactionType](https://ref.gs1.org/epcis/bizTransactionType)   |
+| _bizTransaction        | BizTransaction ID (URI) | (Required) See [epcis:BizTransaction](https://ref.gs1.org/epcis/BizTransaction)   |
+| quantityList           | List of QuantityElements | (Required) See [epcis:quantityList](https://ref.gs1.org/epcis/quantityList)   |
+| _QuantityElement       | Wrapper                 | (Required) See [epcis:QuantityElement](https://ref.gs1.org/epcis/QuantityElement)   |
+| __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcis:epcClass](https://ref.gs1.org/epcis/epcClass)   |
+| __quantity             | Decimal                | (Required) See [epcis:quantity](https://ref.gs1.org/epcis/quantity)   |
+| __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
 | countryList            |  |  |
 | _country               |  |  |
 | eoriNumber             |  |  |
@@ -350,14 +350,14 @@ TBD: In this section, we COULD indicate that if a given field has a defined poly
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
 | physicalLocationName   | Language-tagged string | (Required) See [physicalLocationName](https://www.gs1.org/voc/physicalLocationName)   |
-| locationGLN            | String                 | (Required) See [locationGLN](https://www.gs1.org/voc/locationGLN)    |
-| address                | Address (wrapper)      | (Required) See [PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
-| _streetAddress         | Language-tagged string | (Required) See [streetAddress](https://www.gs1.org/voc/streetAddress)    |
-| _addressLocality       | Language-tagged string | (Required) See [addressLocality](https://www.gs1.org/voc/addressLocality)  |
-| _postalCode            | String                 | (Required) See [postalCode](https://www.gs1.org/voc/postalCode)       |
-| _addressCountry        | Country (wrapper)      | (Required) See [addressCountry](https://www.gs1.org/voc/addressCountry)   |
-| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [countryCode](https://www.gs1.org/voc/countryCode) |
-| geo                    | GeoCoordinates or GeoShape | (Required) See [geo](https://www.gs1.org/voc/geo) |
+| locationGLN            | String                 | (Required) See [gs1:locationGLN](https://www.gs1.org/voc/locationGLN)    |
+| address                | Address (wrapper)      | (Required) See [gs1:PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
+| _streetAddress         | Language-tagged string | (Required) See [gs1:streetAddress](https://www.gs1.org/voc/streetAddress)    |
+| _addressLocality       | Language-tagged string | (Required) See [gs1:addressLocality](https://www.gs1.org/voc/addressLocality)  |
+| _postalCode            | String                 | (Required) See [gs1:postalCode](https://www.gs1.org/voc/postalCode)       |
+| _addressCountry        | Country (wrapper)      | (Required) See [gs1:addressCountry](https://www.gs1.org/voc/addressCountry)   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
+| geo                    | GeoCoordinates or GeoShape | (Required) See [gs1:geo](https://www.gs1.org/voc/geo) |
 | TBD: _GeoCoordinates | | |
 | TBD: _GeoShape | | |
 | TBD: __polygon | String | |
@@ -372,17 +372,17 @@ Hence, a simple party master data record should comprise at least the following 
 
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
-| organizationName       | Language-tagged string | (Required) See [organizationName](https://www.gs1.org/voc/organizationName])    |
+| organizationName       | Language-tagged string | (Required) See [gs1:organizationName](https://www.gs1.org/voc/organizationName])    |
 | globalLocationNumber   | String                 | (Required) See [globalLocationNumber](https://www.gs1.org/voc/globalLocationNumber)    |
-| address                | Address (wrapper)      | (Required) See [PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
-| _streetAddress         | Language-tagged string | (Required) See [streetAddress](https://www.gs1.org/voc/streetAddress)    |
-| _addressLocality       | Language-tagged string | (Required) See [addressLocality](https://www.gs1.org/voc/addressLocality)  |
-| _postalCode            | String                 | (Required) See [postalCode](https://www.gs1.org/voc/postalCode)       |
-| _addressCountry        | Country (wrapper)      | (Required) See [addressCountry](https://www.gs1.org/voc/addressCountry)   |
-| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [countryCode](https://www.gs1.org/voc/countryCode) |
-| contactPoint           | ContactPoint (wrapper) | (Required) See [contactPoint](https://www.gs1.org/voc/contactPoint) |
-| _contactType           | Language-tagged string | (Optional) See [contactType](https://www.gs1.org/voc/contactType)  |
-| _email                 | String                 | (Required) See [email](https://www.gs1.org/voc/email)  |
+| address                | Address (wrapper)      | (Required) See [gs1:PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
+| _streetAddress         | Language-tagged string | (Required) See [gs1:streetAddress](https://www.gs1.org/voc/streetAddress)    |
+| _addressLocality       | Language-tagged string | (Required) See [gs1:addressLocality](https://www.gs1.org/voc/addressLocality)  |
+| _postalCode            | String                 | (Required) See [gs1:postalCode](https://www.gs1.org/voc/postalCode)       |
+| _addressCountry        | Country (wrapper)      | (Required) See [gs1:addressCountry](https://www.gs1.org/voc/addressCountry)   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
+| contactPoint           | ContactPoint (wrapper) | (Required) See [gs1:contactPoint](https://www.gs1.org/voc/contactPoint) |
+| _contactType           | Language-tagged string | (Optional) See [gs1:contactType](https://www.gs1.org/voc/contactType)  |
+| _email                 | String                 | (Required) See [gs1:email](https://www.gs1.org/voc/email)  |
 
 TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
 
