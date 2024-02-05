@@ -455,3 +455,4 @@ of 31 May 2023 on the making available on the Union market and the export from t
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
 - GS1 (2023). *GS1 Web Vocabulary*, Version 1.9, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
+- GS1 (2023). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
