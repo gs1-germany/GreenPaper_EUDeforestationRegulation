@@ -3,7 +3,7 @@
 
 # Green Paper: How GS1 Standards can help to meet the EU Deforestation Regulation
 
-GS1 Germany Green Paper on how the requirements of the EUDR can be met with GS1 standards.
+GS1 Germany Green Paper on how meeting the requirements of the EUDR can be supported with GS1 standards.
 
 ## Disclaimer
 
@@ -31,7 +31,9 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 6. Cattle
 7. Rubber
 
-In addition to that, the regulation also affects products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2). Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
+The regulation also affects all products explicitly listed in Annex I "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2).
+
+Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
 
 ### Affected parties
 
@@ -69,7 +71,10 @@ Note that trading companies making relevant commodities and products available o
 5. Specification of the EU Due Diligence Statement message.
 6. Mapping of GS1 data structures to the EU Due Diligence Statement.
 7. Questionnaire for suppliers for gathering relevant data.
-8. Any other subject not explicily mentioned to be in scope.
+8. Concrete system architecture (e.g. authorisation, authentification)
+9. Technical implementation considerations (e.g. system design)
+10. Non-functional requirements (e.g. usability, performance)
+11. Any other subject not explicitly mentioned to be in scope.
 
 Note that GS1/GS1 Germany may provide support regarding several of the above-mentioned out of scope matters in future documents or standardisation activities.
 
@@ -77,7 +82,7 @@ Note that GS1/GS1 Germany may provide support regarding several of the above-men
 
 ### Overview
 
-The suggested solution approach aims at making it as easy and efficient for affected companies to meet the EUDR. In a nutshell, the recommended data structures may be applied whenever there is a need to share EUDR-relevant data between different companies and information systems. A common data sharing approach can save affected parties significant time and costs.
+The suggested solution approach aims at contributing to make it as easy and efficient for affected companies to meet the EUDR. In a nutshell, the recommended data structures may be applied whenever there is a need to share EUDR-relevant data between different companies and information systems. A common data sharing approach can save affected parties significant time and costs.
 
 At its core, GS1's recommendation is about a concise electronic message ('EPCIS Origin Declaration Event') for transmitting dynamic data, which should be accompanied by an appropriate means to share master data.
 
@@ -95,7 +100,7 @@ INPUT ELI (BRIEF DESCRIPTION)
 ![Case 2](./images/EUDR_Scenario2.jpg "Case 2")
 *Figure 2: Application scenario 2*
 
-**Case 3: First party aggregating upstream EUDR-relevant data**
+**Case 3: Operators sharing the same EUDR solution**
 INPUT ELI (BRIEF DESCRIPTION)
 
 ![Case 3](./images/EUDR_Scenario3.jpg "Case 3")
@@ -109,7 +114,7 @@ INPUT ELI (BRIEF DESCRIPTION)
 
 ### Due Diligence Statement
 
-The following EUDR excerpt shows the required content of the Due Diligence Statement. Not that the statement as such does not contain all data affected parties are required to collect and/or record: 
+The following EUDR excerpt shows the required content of the Due Diligence Statement. Not that the statement as such does not contain all data affected parties are required to collect and/or record:
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 *Figure 2: Due Diligence Statement as per EU (2023), Annex II*
@@ -154,7 +159,8 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
 | countryList            |  |  |
 | _country               |  |  |
-| eoriNumber             |  |  |
+| eoriNumber             | conditional |  |
+| hsCode                 | optional |  |
 | originList             |  |  |
 | _originDetails         |  |  |
 | __areaSize             |  |  |
@@ -258,7 +264,7 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 				<eventTimeZoneOffset>+02:00</eventTimeZoneOffset>
 				<action>OBSERVE</action>
 				<bizStep>https://example.com/bizStep/declaring_origin</bizStep>
-				<!-- Identifies the supplier's place of business (e.g. headquarters). Usually corresponds with operator's Party GLN, see eudr:operatorID -->
+				<!-- Identifies the declaring party's of business (e.g. headquarters). Usually corresponds with declaration party GLN -->
 				<readPoint>
 					<id>https://id.gs1.org/414/4000001100002</id>
 				</readPoint>
@@ -281,9 +287,11 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 				<eudr:harvestDateEnd>2024-01-18</eudr:harvestDateEnd>
 				<!-- Own EORI (Economic Operators Registration and Identification) number -->
 				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
-				<!-- (Optional) Party GLN identifying operator who makes the statement -->
+				<!-- (Optional) Party GLN identifying the declaring party -->
 				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
 				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
+        <!-- optional -->
+        <eudr:hsCode>18040000</eudr:hsCode>
 				<eudr:countryList>
 					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
 					<eudr:country>CO</eudr:country>
@@ -303,7 +311,8 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 						<!-- Optional producer/farmer information -->
 						<eudr:producerIdentification>
 							<!-- TBD: really freetext or proper ID? -->
-							<eudr:producer>Farmer ABC</eudr:producer>
+              <eudr:producer type="xyz:PartyGLN">4012345123456</>
+              <eudr:producer type="xyz:FREETEXT">Farmer ABC</>
 						</eudr:producerIdentification>
 					</eudr:originDetails>
 					<eudr:originDetails>
@@ -314,7 +323,8 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
 						<eudr:producerIdentification>
-							<eudr:producer>Farmer DEF</eudr:producer>
+							<eudr:producer type="xyz:PartyGLN">4012345123456</>
+              <eudr:producer type="xyz:FREETEXT">Farmer ABC</>
 						</eudr:producerIdentification>
 					</eudr:originDetails>
 				</eudr:originList>
@@ -334,14 +344,18 @@ c. Party Master Data
 #### Product master data
 
 eudr:hsCode
-
 eudr:commodityDescription
-
 eudr:scientificName
 
 eudr:commonName
 
 TBD: GS1 Web Voc format (+ Bsp.)?
+
+gs1:gtin
+gs1:productName
+gs1:productDescription
+gs1:regulatedProductName
+gs1:countryOfOrigin
 
 #### Location master data
 
@@ -358,15 +372,72 @@ TBD: In this section, we COULD indicate that if a given field has a defined poly
 | _addressCountry        | Country (wrapper)      | (Required) See [gs1:addressCountry](https://www.gs1.org/voc/addressCountry)   |
 | __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
 | geo                    | GeoCoordinates or GeoShape | (Required) See [gs1:geo](https://www.gs1.org/voc/geo) |
-| TBD: _GeoCoordinates | | |
-| TBD: _GeoShape | | |
-| TBD: __polygon | String | |
+| _GeoCoordinates        | Latitude/longitude (wrapper) | (Conditional) See [gs1:GeoCoordinates](https://www.gs1.org/voc/GeoCoordinates) |
+| __latitude | Float | (Required) See [gs1:latitude](https://www.gs1.org/voc/latitude) |
+| __longitude | Float | (Required) See [gs1:longitude](https://www.gs1.org/voc/longitude) |
+| _GeoShape | Polygon | (Conditional) See [gs1:GeoShape](https://gs1.org/voc/GeoShape) |
+| __polygon | String | (Required) See [gs1:polygon](https://gs1.org/voc/polygon) |
 
-Example TBD
+The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+
+```json
+{
+    "@context": {
+        "gs1": "https://gs1.org/voc/",
+        "xsd": "https://www.w3.org/2001/XMLSchema#",
+        "@vocab": "https://gs1.org/voc/"
+    },
+    "@type": "gs1:Place",
+    "@id": "https://id.gs1.org/414/4000001100002",
+    "physicalLocationName": [
+          {
+              "@value": "Example Location One",
+              "@language": "en"
+          }
+      ],
+    "locationGLN": "4000001100002",
+    "address": [
+        {
+            "streetAddress": [
+                {
+                    "@value": "Sample Street 123",
+                    "@language": "en"
+                }
+            ],
+            "addressLocality": [
+                {
+                    "@value": "Sample City",
+                    "@language": "en"
+                }
+            ],
+            "postalCode": "12345",
+            "addressCountry": {
+                "countryCode": "DE",
+                "@type": "gs1:Country"
+            },
+            "@type": "gs1:PostalAddress"
+        }
+    ],
+    "geo": {
+        "latitude": {
+            "@value": "50.942499",
+            "@type": "xsd:float"
+        },
+        "longitude": {
+            "@value": "6.898247",
+            "@type": "xsd:float"
+        },
+        "@type": "gs1:GeoCoordinates"
+    },
+    "geo": {
+        "polygon": "50.942499 6.898247 50.942275 6.898292 50.942263 6.898094 50.942106 6.898126 50.942130 6.898526 50.942512 6.898451 50.942499 6.898247",
+        "@type": "gs1:GeoShape"
+    },
+```
 
 #### Party master data
 
-According to the EUDR (EU 2023, §9), affected parties need to have a recored of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
+According to the EUDR (EU 2023, §9), affected parties need to have a record of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
 
 Hence, a simple party master data record should comprise at least the following data:
 
@@ -384,7 +455,7 @@ Hence, a simple party master data record should comprise at least the following 
 | _contactType           | Language-tagged string | (Optional) See [gs1:contactType](https://www.gs1.org/voc/contactType)  |
 | _email                 | String                 | (Required) See [gs1:email](https://www.gs1.org/voc/email)  |
 
-TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
+The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
@@ -455,3 +526,4 @@ of 31 May 2023 on the making available on the Union market and the export from t
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
 - GS1 (2023). *GS1 Web Vocabulary*, Version 1.9, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
+- GS1 (2023). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
