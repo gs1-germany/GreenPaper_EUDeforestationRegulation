@@ -31,7 +31,9 @@ The EU regulation on deforestation covers the following seven relevant commoditi
 6. Cattle
 7. Rubber
 
-In addition to that, the regulation also affects products "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2). Annex I of the regulation lists concrete examples. Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
+The regulation also affects all products explicitly listed in Annex I "...that contain, have been fed with or have been made using [the above mentioned] relevant commodities" (EU 2023, § 2.2).
+
+Therefore, if a company, for instance,  imports cocoa butter, fat or oil into the EU, it must comply with this regulation.
 
 ### Affected parties
 
