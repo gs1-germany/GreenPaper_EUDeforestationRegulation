@@ -3,7 +3,7 @@
 
 # Green Paper: How GS1 Standards can help to meet the EU Deforestation Regulation
 
-GS1 Germany Green Paper on how the requirements of the EUDR can be met with GS1 standards.
+GS1 Germany Green Paper on how meeting the requirements of the EUDR can be supported with GS1 standards.
 
 ## Disclaimer
 
