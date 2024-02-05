@@ -156,7 +156,7 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
 | countryList            |  |  |
 | _country               |  |  |
-| eoriNumber             |  |  |
+| eoriNumber             | conditional |  |
 | originList             |  |  |
 | _originDetails         |  |  |
 | __areaSize             |  |  |
@@ -260,7 +260,7 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 				<eventTimeZoneOffset>+02:00</eventTimeZoneOffset>
 				<action>OBSERVE</action>
 				<bizStep>https://example.com/bizStep/declaring_origin</bizStep>
-				<!-- Identifies the supplier's place of business (e.g. headquarters). Usually corresponds with operator's Party GLN, see eudr:operatorID -->
+				<!-- Identifies the declaring party's of business (e.g. headquarters). Usually corresponds with declaration party GLN -->
 				<readPoint>
 					<id>https://id.gs1.org/414/4000001100002</id>
 				</readPoint>
@@ -283,9 +283,11 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 				<eudr:harvestDateEnd>2024-01-18</eudr:harvestDateEnd>
 				<!-- Own EORI (Economic Operators Registration and Identification) number -->
 				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
-				<!-- (Optional) Party GLN identifying operator who makes the statement -->
+				<!-- (Optional) Party GLN identifying the declaring party -->
 				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
 				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
+        <!-- optional -->
+        <eudr:hsCode>18040000</eudr:hsCode>
 				<eudr:countryList>
 					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
 					<eudr:country>CO</eudr:country>
@@ -305,7 +307,8 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 						<!-- Optional producer/farmer information -->
 						<eudr:producerIdentification>
 							<!-- TBD: really freetext or proper ID? -->
-							<eudr:producer>Farmer ABC</eudr:producer>
+              <eudr:producer type="xyz:PartyGLN">4012345123456</>
+              <eudr:producer type="xyz:FREETEXT">Farmer ABC</>
 						</eudr:producerIdentification>
 					</eudr:originDetails>
 					<eudr:originDetails>
@@ -316,7 +319,8 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
 						<eudr:producerIdentification>
-							<eudr:producer>Farmer DEF</eudr:producer>
+							<eudr:producer type="xyz:PartyGLN">4012345123456</>
+              <eudr:producer type="xyz:FREETEXT">Farmer ABC</>
 						</eudr:producerIdentification>
 					</eudr:originDetails>
 				</eudr:originList>
