@@ -97,7 +97,7 @@ INPUT ELI (BRIEF DESCRIPTION)
 ![Case 2](./images/EUDR_Scenario2.jpg "Case 2")
 *Figure 2: Application scenario 2*
 
-**Case 3: First party aggregating upstream EUDR-relevant data**
+**Case 3: Operators sharing the same EUDR solution**
 INPUT ELI (BRIEF DESCRIPTION)
 
 ![Case 3](./images/EUDR_Scenario3.jpg "Case 3")
