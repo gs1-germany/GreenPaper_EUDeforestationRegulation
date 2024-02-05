@@ -71,7 +71,7 @@ Note that trading companies making relevant commodities and products available o
 5. Specification of the EU Due Diligence Statement message.
 6. Mapping of GS1 data structures to the EU Due Diligence Statement.
 7. Questionnaire for suppliers for gathering relevant data.
-8. Any other subject not explicily mentioned to be in scope.
+8. Any other subject not explicitly mentioned to be in scope.
 
 Note that GS1/GS1 Germany may provide support regarding several of the above-mentioned out of scope matters in future documents or standardisation activities.
 
