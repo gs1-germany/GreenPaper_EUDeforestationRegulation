@@ -71,7 +71,10 @@ Note that trading companies making relevant commodities and products available o
 5. Specification of the EU Due Diligence Statement message.
 6. Mapping of GS1 data structures to the EU Due Diligence Statement.
 7. Questionnaire for suppliers for gathering relevant data.
-8. Any other subject not explicitly mentioned to be in scope.
+8. Concrete system architecture (e.g. authorisation, authentification)
+9. Technical implementation considerations (e.g. system design)
+10. Non-functional requirements (e.g. usability, performance)
+11. Any other subject not explicitly mentioned to be in scope.
 
 Note that GS1/GS1 Germany may provide support regarding several of the above-mentioned out of scope matters in future documents or standardisation activities.
 
@@ -111,7 +114,7 @@ INPUT ELI (BRIEF DESCRIPTION)
 
 ### Due Diligence Statement
 
-The following EUDR excerpt shows the required content of the Due Diligence Statement. Not that the statement as such does not contain all data affected parties are required to collect and/or record: 
+The following EUDR excerpt shows the required content of the Due Diligence Statement. Not that the statement as such does not contain all data affected parties are required to collect and/or record:
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 *Figure 2: Due Diligence Statement as per EU (2023), Annex II*
@@ -157,6 +160,7 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 | countryList            |  |  |
 | _country               |  |  |
 | eoriNumber             | conditional |  |
+| hsCode                 | optional |  |
 | originList             |  |  |
 | _originDetails         |  |  |
 | __areaSize             |  |  |
@@ -340,14 +344,18 @@ c. Party Master Data
 #### Product master data
 
 eudr:hsCode
-
 eudr:commodityDescription
-
 eudr:scientificName
 
 eudr:commonName
 
 TBD: GS1 Web Voc format (+ Bsp.)?
+
+gs1:gtin
+gs1:productName
+gs1:productDescription
+gs1:regulatedProductName
+gs1:countryOfOrigin
 
 #### Location master data
 
@@ -364,15 +372,72 @@ TBD: In this section, we COULD indicate that if a given field has a defined poly
 | _addressCountry        | Country (wrapper)      | (Required) See [gs1:addressCountry](https://www.gs1.org/voc/addressCountry)   |
 | __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
 | geo                    | GeoCoordinates or GeoShape | (Required) See [gs1:geo](https://www.gs1.org/voc/geo) |
-| TBD: _GeoCoordinates | | |
-| TBD: _GeoShape | | |
-| TBD: __polygon | String | |
+| _GeoCoordinates        | Latitude/longitude (wrapper) | (Conditional) See [gs1:GeoCoordinates](https://www.gs1.org/voc/GeoCoordinates) |
+| __latitude | Float | (Required) See [gs1:latitude](https://www.gs1.org/voc/latitude) |
+| __longitude | Float | (Required) See [gs1:longitude](https://www.gs1.org/voc/longitude) |
+| _GeoShape | Polygon | (Conditional) See [gs1:GeoShape](https://gs1.org/voc/GeoShape) |
+| __polygon | String | (Required) See [gs1:polygon](https://gs1.org/voc/polygon) |
 
-Example TBD
+The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+
+```json
+{
+    "@context": {
+        "gs1": "https://gs1.org/voc/",
+        "xsd": "https://www.w3.org/2001/XMLSchema#",
+        "@vocab": "https://gs1.org/voc/"
+    },
+    "@type": "gs1:Place",
+    "@id": "https://id.gs1.org/414/4000001100002",
+    "physicalLocationName": [
+          {
+              "@value": "Example Location One",
+              "@language": "en"
+          }
+      ],
+    "locationGLN": "4000001100002",
+    "address": [
+        {
+            "streetAddress": [
+                {
+                    "@value": "Sample Street 123",
+                    "@language": "en"
+                }
+            ],
+            "addressLocality": [
+                {
+                    "@value": "Sample City",
+                    "@language": "en"
+                }
+            ],
+            "postalCode": "12345",
+            "addressCountry": {
+                "countryCode": "DE",
+                "@type": "gs1:Country"
+            },
+            "@type": "gs1:PostalAddress"
+        }
+    ],
+    "geo": {
+        "latitude": {
+            "@value": "50.942499",
+            "@type": "xsd:float"
+        },
+        "longitude": {
+            "@value": "6.898247",
+            "@type": "xsd:float"
+        },
+        "@type": "gs1:GeoCoordinates"
+    },
+    "geo": {
+        "polygon": "50.942499 6.898247 50.942275 6.898292 50.942263 6.898094 50.942106 6.898126 50.942130 6.898526 50.942512 6.898451 50.942499 6.898247",
+        "@type": "gs1:GeoShape"
+    },
+```
 
 #### Party master data
 
-According to the EUDR (EU 2023, §9), affected parties need to have a recored of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
+According to the EUDR (EU 2023, §9), affected parties need to have a record of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
 
 Hence, a simple party master data record should comprise at least the following data:
 
@@ -390,7 +455,7 @@ Hence, a simple party master data record should comprise at least the following 
 | _contactType           | Language-tagged string | (Optional) See [gs1:contactType](https://www.gs1.org/voc/contactType)  |
 | _email                 | String                 | (Required) See [gs1:email](https://www.gs1.org/voc/email)  |
 
-TBD: Provide example of data structure which can be accessed e.g. through GS1 Registry Platform or GS1-compliant Resolvers?  
+The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
