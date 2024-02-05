@@ -129,17 +129,17 @@ Explain that the above DDS consists of:
 
 #### Preliminary remark
 
-Note that none of the specified EPCIS user extension fields are standardised yet. This is why the latter are declared under the `example` namespace.
+Note that the specified EPCIS user extension fields are not yet standardised. This is why the latter are declared under the `example` namespace.
 
-Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
-
-#### Design considerations
-
-- e.g. each EPCIS event is related to (one?) specific product (TBD)
+Once the EPCIS event message structures are standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
 
 #### Event data structure
 
-The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used for the EPCIS Origin Declaration Event is an [ObjectEvent](https://ref.gs1.org/epcis/ObjectEvent). The following table specifies its containing fields.
+The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used for the EPCIS Origin Declaration Event is an [ObjectEvent](https://ref.gs1.org/epcis/ObjectEvent).
+
+Each EPCIS event relates to one specifc product.
+
+The following table defines the content of the EPCIS Origin Declaration Event:
 
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
@@ -147,32 +147,32 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 | eventTimeZoneOffset    | String                 | (Required) See [epcis:eventTimeZoneOffset](https://ref.gs1.org/epcis/eventTimeZoneOffset)   |
 | action                 | Code value (`OBSERVE`) | (Required) See [epcis:action](https://ref.gs1.org/epcis/action)    |
 | bizStep | BizStep URI (`https://example.com/bizStep/declaring_origin`) | (Required) See [epcis:bizStep](https://ref.gs1.org/epcis/bizStep)   |
-| readPoint              |  Place (Wrapper)        | (Optional) See [epcis:readPoint](https://ref.gs1.org/epcis/readPoint)   |
+| readPoint              | Place (Wrapper)         | (Optional) See [epcis:readPoint](https://ref.gs1.org/epcis/readPoint)   |
 | _id                    | Location ID (GS1 Digital Link URI) | (Required) |
 | bizTransactionList     | List of BizTransactions | (Optional) See [epcis:bizTransactionList](https://ref.gs1.org/epcis/bizTransactionList)     |
 | _type                  | Business Transaction Type ID (URI) | (Optional) See [epcis:bizTransactionType](https://ref.gs1.org/epcis/bizTransactionType)   |
 | _bizTransaction        | BizTransaction ID (URI) | (Required) See [epcis:BizTransaction](https://ref.gs1.org/epcis/BizTransaction)   |
 | quantityList           | List of QuantityElements | (Required) See [epcis:quantityList](https://ref.gs1.org/epcis/quantityList)   |
-| _QuantityElement       | Wrapper                 | (Required) See [epcis:QuantityElement](https://ref.gs1.org/epcis/QuantityElement)   |
+| _QuantityElement       | Wrapper                | (Required) See [epcis:QuantityElement](https://ref.gs1.org/epcis/QuantityElement)   |
 | __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcis:epcClass](https://ref.gs1.org/epcis/epcClass)   |
 | __quantity             | Decimal                | (Required) See [epcis:quantity](https://ref.gs1.org/epcis/quantity)   |
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
-| countryList            |  |  |
-| _country               |  |  |
-| eoriNumber             | conditional |  |
-| hsCode                 | optional |  |
-| originList             |  |  |
+| countryList            | List of CountryCodes   | (Required) |
+| _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) A short text string code specifying a country |
+| eoriNumber             | String | (Conditional) Economic Operators' Registration and Identification number |
+| hsCode                 | String | (Optional) Harmonized System Code |
+| originList             | List of OriginDetails  | (Required) |
 | _originDetails         |  |  |
 | __areaSize             |  |  |
 | ___value               |  |  |
 | ___unitCode            |  |  |
 | __producerIdentification |  |  |
 | ___producer            |  |  |
-| __geofence             |  |  |
-| __geolocation          |  |  |
-| harvestDateStart       |  |  |
-| harvestDateEnd         |  |  |
-| partyGLN               |  |  |
+| __geofence             | String (Polygon according to CBV 2.0, 9.3.1) | (Conditional) Area polygon (geofence) as specified in RFC 7946 consisting of an array of longitude-latitude-coordinates |
+| __geolocation          | URI (Geo URI)          | (Conditional) |
+| harvestDateStart       | Date                   | (Optional) The harvest start date |
+| harvestDateEnd         | Date                   | (Optional) The harvest end date |
+| partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify a legal entity |
 
 #### EPCIS 2.0 JSON/JSON-LD example
 
@@ -529,3 +529,4 @@ of 31 May 2023 on the making available on the Union market and the export from t
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
 - GS1 (2023). *GS1 Web Vocabulary*, Version 1.9, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
 - GS1 (2023). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
+- Mayrhofer, A./Spanring, C. (2010). *A Uniform Resource Identifier for Geographic Locations ('geo' URI)*, RFC 5870, Retrieved from [https://datatracker.ietf.org/html/rfc5870](https://datatracker.ietf.org/html/rfc5870)
