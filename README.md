@@ -121,11 +121,16 @@ The following EUDR excerpt shows the required content of the Due Diligence State
 
 ### Master data vs. event data
 
-Explain that the above DDS consists of:
-- Visibility data (dynamic)
-- Product, organisation and location master data (static)
+Data as required by the EUDR can be grouped into two categories:
+
+- *Dynamic:* (Visibility) event data
+- *Static:* Master Data for products, organisations, and locations
+
+The following sections provide guidance on how this data may be shared by leveraging GS1 data structures.
 
 ### Event data
+
+Event data are records of the completion of business process steps in which physical or digital entities are handled.It confirms the carrying out of a physical process or a comparable digital process. (GS1 2023c, 6.1.3)
 
 #### Preliminary remark
 
@@ -338,6 +343,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 
 ### Master Data
 
+Master data are descriptive data elements of an entity that are static or nearly so. For a product, for example, master data might include the trade item’s dimensions, descriptive text, nutritional information in the case of a food product, and so on. For a legal entity, master data might include the name of the organisation, its postal address, geographic coordinates, contact information, and so on. (GS1 2023c, 6.1.1)
+
 IDEE: Drei Tabellen mit geforderten Infos gemäß EUDR
 a. Product Master Data
 b. Location Master Data
@@ -518,8 +525,6 @@ The example data structure provided below can be implemented across the APIs of 
 | ---------------------- | ------------------------ | ---------------------- |
 | Dr Ralph Troeger       | GS1 Germany              | Senior Manager AIDC    |
 | Elisabeth Kikidis      | GS1 Germany              | Senior Manager AIDC    |
-| TBC: Sabine Klaeser    | GS1 Germany              | Senior Manager AIDC    |
-| TBC: Frank Kuhlmann    | GS1 Germany              | Lead AIDC              |
 
 ## References
 
@@ -527,6 +532,7 @@ The example data structure provided below can be implemented across the APIs of 
 of 31 May 2023 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation and repealing Regulation (EU) No 995/2010, Official Journal of the European Union, June 2023*. Retrieved from [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115)
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
-- GS1 (2023). *GS1 Web Vocabulary*, Version 1.9, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
-- GS1 (2023). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
+- GS1 (2023a). *GS1 Web Vocabulary, Version 1.9*, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
+- GS1 (2023b). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
+- GS1 (2023c). *GS1 System Architecture. How GS1 standards fit together, Release 11.1, Mar 2023*, Available at [https://www.gs1.org/standards/gs1-system-architecture-document/current-standard](https://www.gs1.org/standards/gs1-system-architecture-document/current-standard)
 - Mayrhofer, A./Spanring, C. (2010). *A Uniform Resource Identifier for Geographic Locations ('geo' URI)*, RFC 5870, Retrieved from [https://datatracker.ietf.org/html/rfc5870](https://datatracker.ietf.org/html/rfc5870)
