@@ -136,9 +136,9 @@ Event data are records of the completion of business process steps in which phys
 
 #### Preliminary remark
 
-Note that the specified EPCIS user extension fields are not yet standardised. This is why the latter are declared under the `example` namespace.
+Note that the specified EPCIS event structure contains user extension fields and user vocabulary elements. The latter are declared or formed by using the `example` namespace. In other words, they are not yet standardised.
 
-Once the EPCIS event message structures are standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
+Once the EPCIS event message structure (including its fields and values) is formally standardised, e.g. in a GS1 application standard, any documentation or implementation referring to it should be updated accordingly.
 
 #### Event data structure
 
