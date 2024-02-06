@@ -497,35 +497,71 @@ The example data structure provided below can be implemented across the APIs of 
             "@type": "xsd:float"
         },
         "@type": "gs1:GeoCoordinates"
-    },
-    "geo": {
-        "polygon": "50.942499 6.898247 50.942275 6.898292 50.942263 6.898094 50.942106 6.898126 50.942130 6.898526 50.942512 6.898451 50.942499 6.898247",
-        "@type": "gs1:GeoShape"
-    },
+    }
+}
 ```
 
 #### Product master data
 
 Analogous to party and location master data, it also makes sense to share master data of  affected trade items. A simple party master data record for a product, identified through a Global Trade Item Number (GTIN), may comprise the following data:
 
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| productName            | Language-tagged string | (Required) See [gs1:productName](https://www.gs1.org/voc/productName) |
+| gtin                   | String                 | (Required) See [gs1:gtin](https://www.gs1.org/voc/gtin) |
+| regulatedProductName   | Language-tagged string | (Required) See [gs1:regulatedProductName](https://www.gs1.org/voc/regulatedProductName) |
+| productDescription     | Language-tagged string | (Required) See [gs1:productDescription](https://www.gs1.org/voc/productDescription) |
+| countryOfOrigin        | Country (wrapper)      | (Optional) See [gs1:countryOfOrigin](https://www.gs1.org/voc/countryOfOrigin) |
+| _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
+| hsCode                 | String                 | (Optional) Harmonized System Code |
+| scientificName         | String                 | (Required) Scientific name |
+| commodityDescription   | Language-tagged string | (Required) Description of commodity |
 
-eudr:hsCode
-eudr:commodityDescription
-eudr:scientificName
-
-eudr:commonName
-
-TBD: GS1 Web Voc format (+ Bsp.)?
-
-gs1:gtin
-gs1:productName
-gs1:productDescription
-gs1:regulatedProductName
-gs1:countryOfOrigin
-
-
-
-
+```json
+{
+    "@context": {
+        "gs1": "https://gs1.org/voc/",
+        "xsd": "https://www.w3.org/2001/XMLSchema#",
+        "ex": "https://example.com/voc/",
+        "@vocab": "https://gs1.org/voc/"
+    },
+    "@type": "gs1:Product",
+    "@id": "https://id.gs1.org/01/04012345123456",
+    "productName": [
+        {
+            "@value": "Example Cocoa Butter",
+            "@language": "en"
+        }
+    ],
+    "gtin": "04012345123456",
+    "regulatedProductName": [
+        {
+            "@value": "Cocoa butter",
+            "@language": "en"
+        }
+    ],
+    "productDescription": [
+        {
+            "@value": "Example cocoa butter is a creamy, vegetable fat extracted from the cocoa bean, renowned for its rich aroma and smooth texture.",
+            "@language": "en"
+        }
+    ],
+    "countryOfOrigin": [
+        {
+            "@type": "gs1:Country",
+            "countryCode": "EC"
+        }
+    ],
+    "ex:hsCode": "18040000",
+    "ex:scientificName": "Theobroma cacao",
+    "ex:commodityDescription": [
+        {
+            "@value": "Cocoa refers to the dried and fully fermented seeds of Theobroma cacao, from which cocoa butter, cocoa powder, and chocolate are made. It is a key ingredient in confectionery and beverages, valued for its rich flavor and aroma.",
+            "@language": "en"
+        }
+    ]
+}
+```
 
 ## Authors
 
