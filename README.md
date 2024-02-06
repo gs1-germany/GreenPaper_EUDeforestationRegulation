@@ -173,7 +173,7 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) A short text string code specifying a country |
 | originList             | List of OriginDetails  | (Required) |
 | _originDetails         | Wrapper | (Required) Structure comprising origin details |
-| __geofence             | String (Polygon according to CBV 2.0, 9.3.1) | (Conditional) Area polygon (geofence) as specified in RFC 7946 consisting of an array of longitude-latitude-coordinates |
+| __geofence             | String | (Conditional) Area polygon (geofence) as specified in CBV 2.0, 9.3.1, consisting of an array of longitude-latitude-coordinates |
 | __geolocation          | URI (Geo URI)          | (Conditional) Geographic coordinates, expressed as a Geo URI according to RFC 5870 |
 | __areaSize             | Wrapper | (Optional) Quantitative value to specify a field's area size, consisting of a point value and a unit of measurement |
 | ___value               | Float | (Required) A floating-point numeric value that is qualified by the corresponding measurement unit code |
