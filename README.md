@@ -527,12 +527,23 @@ gs1:countryOfOrigin
 
 
 
-## Contributors
+## Authors
 
 | Name                   | Affiliation              | Job Title              |
 | ---------------------- | ------------------------ | ---------------------- |
 | Dr Ralph Troeger       | GS1 Germany              | Senior Manager AIDC    |
 | Elisabeth Kikidis      | GS1 Germany              | Senior Manager AIDC    |
+
+## Acknowledgements
+
+The following table lists, in alphabetical order of their surname, persons from GS1 Germany Solution Partners having contributed to this Green Paper so far. We would like to take the opportunity to express our gratitude for their valuable support.
+
+| Name             | Affiliation     | Job Title                        |
+| ---------------- | --------------- | -------------------------------- |
+| Sven Böckelmann  | benelog         | Head of Software Development     |
+| Carsten Mohr     | ftrace          | Senior Technical Product Manager |
+| Falk Nieder      | European EPC Competence Center GmbH (EECC) | Head of Software and Traceability Solutions |
+| Patrik Rothe     | ftrace          | Head of osapiens ftrace          |
 
 ## References
 
