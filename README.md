@@ -115,7 +115,7 @@ This scenario is applicable if affected downstream parties utilise a community-b
 
 #### Case 4: One common traceability and EUDR system used by all parties concerned
 
-INPUT ELI (BRIEF DESCRIPTION)
+In this last scenario (though rather unlikely for the foreseeable future), all affected stakeholders in the supply chain, ranging from the farmer to the retailer, utilise a unified system for traceability and EUDR compliance. Under these circumstances, the need for a standardised data exchange might become redundant, as relevant traceability data (most notably, EPCIS events) is already captured and shared within this unified system. Additionally, the Due Diligence Statement reference numbers for companies operating within the EU could be conveyed in e.g. EPCIS Shipping or Transformation events. This comprehensive approach would ensure that all required origin data for meeting the obligations of operators and traders (including processing and (dis)aggregation processes) are collected systematically, thereby facilitating a holistic view of compliance and traceability across the entire supply chain.
 
 ![Case 4](./images/EUDR_Scenario4.jpg "Case 4")
 *Figure 4: Application scenario 4*
