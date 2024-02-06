@@ -53,9 +53,9 @@ It is important to note that the EUDR specifies a number of responsibilities for
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
 3. Perform due diligence for each affected product/supplier (EU 2023, § 8), including the collection of information, data and documents (EU 2023, § 9), risk assessments (EU 2023, § 10), and risk mitigation measures (EU 2023, § 11).
 4. Keep (for five years) all relevant data like product description, quantity, country of production, geolocation of plots where relevant commodities were produced as well as date/time range of harvest/production. [EU 2023, § 9.1]
-5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the coresponding reference numbers of the due diligence statements. [EU 2023, § 4.7]
+5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the corresponding reference numbers of the due diligence statements. [EU 2023, § 4.7]
 
-Note that trading companies making relevant commodities and products available on the EU market also have to fulfill a number of obligations. The latter are partly similar to the ones stated above.
+Note that trading companies making relevant commodities and products available on the EU market also have to fulfil a number of obligations. The latter are partly similar to the ones stated above.
 
 **In scope:**
 
@@ -73,7 +73,7 @@ Note that trading companies making relevant commodities and products available o
 5. Specification of the EU Due Diligence Statement message.
 6. Mapping of GS1 data structures to the EU Due Diligence Statement.
 7. Questionnaire for suppliers for gathering relevant data.
-8. Concrete system architecture (e.g. authorisation, authentification)
+8. Concrete system architecture (e.g. authorisation, authentication)
 9. Technical implementation considerations (e.g. system design)
 10. Non-functional requirements (e.g. usability, performance)
 11. Any other subject not explicitly mentioned to be in scope.
@@ -90,26 +90,32 @@ At its core, GS1's recommendation is about a concise electronic message ('EPCIS 
 
 The following illustrations help to understand in which cases the solution approach candidate (referred to as 'GS1 Rec.') is applicable.
 
-**Case 1: Party which needs to receive and hand over EUDR-relevant data**
-INPUT ELI (BRIEF DESCRIPTION)
+#### Case 1: Party which needs to receive and hand over EUDR-relevant data
+
+When an importing company needs to gather data related to the EUDR regarding the origin of products, it may request this information from its suppliers through the use of GS1 data structures as recommended in this document, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform.
+
+This standardised communication method benefits suppliers by shielding them from the need to adapt to various proprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
 
 ![Case 1](./images/EUDR_Scenario1.jpg "Case 1")
 *Figure 1: Application scenario 1*
 
-**Case 2: Several systems requiring to share EUDR-relevant data**
-INPUT ELI (BRIEF DESCRIPTION)
+#### Case 2: Several systems requiring to share EUDR-relevant data
+
+In this context, we are considering a situation where there is a traceability system in place in the upstream supply chain. Such a system could be managed by third party solution providers, government agencies, or organisations responsible for certification and quality control. The EUDR-relevant data can be gathered and shared using the EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). Therefore, this recommendation may help to enhance interoperability among various systems for traceability, transparency, and compliance with the EUDR that are used throughout value networks.
 
 ![Case 2](./images/EUDR_Scenario2.jpg "Case 2")
 *Figure 2: Application scenario 2*
 
-**Case 3: Operators sharing the same EUDR solution**
-INPUT ELI (BRIEF DESCRIPTION)
+#### Case 3: Operators sharing the same EUDR solution
+
+This scenario is applicable if affected downstream parties utilise a community-based EUDR solution. In such a system, pertinent data on product origin and risk assessments can be shared through cloud-based services among (entitled) members. However, to ensure seamless connectivity and data coherence between the upstream and downstream supply chain, it is crucial to employ standardised data structures as suggested in this document. This would ensure that information flows efficiently across the entire supply chain (e.g. through reducing the risk of discrepancies and errors in data transmission).
 
 ![Case 3](./images/EUDR_Scenario3.jpg "Case 3")
 *Figure 3: Application scenario 3*
 
-**Case 4: One common traceability and EUDR system used by all parties concerned**
-INPUT ELI (BRIEF DESCRIPTION)
+#### Case 4: One common traceability and EUDR system used by all parties concerned
+
+In this last scenario (though rather unlikely for the foreseeable future), all affected stakeholders in the supply chain, ranging from the farmer to the retailer, utilise a unified system for traceability and EUDR compliance. Under these circumstances, the need for a standardised data exchange might become redundant, as relevant traceability data (most notably, EPCIS events) is already captured and shared within this unified system. Additionally, the Due Diligence Statement reference numbers for companies operating within the EU could be conveyed in e.g. EPCIS Shipping or Transformation events. This comprehensive approach would ensure that all required origin data for meeting the obligations of operators and traders (including processing and (dis)aggregation processes) are collected systematically, thereby facilitating a holistic view of compliance and traceability across the entire supply chain.
 
 ![Case 4](./images/EUDR_Scenario4.jpg "Case 4")
 *Figure 4: Application scenario 4*
@@ -132,7 +138,7 @@ The following sections provide guidance on how this data may be shared by levera
 
 ### Event data
 
-Event data are records of the completion of business process steps in which physical or digital entities are handled.It confirms the carrying out of a physical process or a comparable digital process. (GS1 2023c, 6.1.3)
+Event data are records of the completion of business process steps in which physical or digital entities are handled. It confirms the carrying out of a physical process or a comparable digital process. (GS1 2023c, 6.1.3)
 
 #### Preliminary remark
 
@@ -144,7 +150,7 @@ Once the EPCIS event message structure (including its fields and values) is form
 
 The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used for the EPCIS Origin Declaration Event is an [ObjectEvent](https://ref.gs1.org/epcis/ObjectEvent).
 
-Each EPCIS event relates to one specifc product.
+Each EPCIS event relates to one specific product.
 
 The following table defines the content of the EPCIS Origin Declaration Event:
 
@@ -345,110 +351,11 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 
 Master data are descriptive data elements of an entity that are static or nearly so. For a product, for example, master data might include the trade item’s dimensions, descriptive text, nutritional information in the case of a food product, and so on. For a legal entity, master data might include the name of the organisation, its postal address, geographic coordinates, contact information, and so on. (GS1 2023c, 6.1.1)
 
-IDEE: Drei Tabellen mit geforderten Infos gemäß EUDR
-a. Product Master Data
-b. Location Master Data
-c. Party Master Data
-
-#### Product master data
-
-eudr:hsCode
-eudr:commodityDescription
-eudr:scientificName
-
-eudr:commonName
-
-TBD: GS1 Web Voc format (+ Bsp.)?
-
-gs1:gtin
-gs1:productName
-gs1:productDescription
-gs1:regulatedProductName
-gs1:countryOfOrigin
-
-#### Location master data
-
-TBD: In this section, we COULD indicate that if a given field has a defined polygon, a master data service (e.g. the GS1 Registry) could store/provide this polygon and further ease data provision.
-
-| Field name             | Data type              | Description                    |
-| ---------------------- | ---------------------- | ------------------------------ |
-| physicalLocationName   | Language-tagged string | (Required) See [gs1:physicalLocationName](https://www.gs1.org/voc/physicalLocationName)   |
-| locationGLN            | String                 | (Required) See [gs1:locationGLN](https://www.gs1.org/voc/locationGLN)    |
-| address                | Address (wrapper)      | (Required) See [gs1:PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
-| _streetAddress         | Language-tagged string | (Required) See [gs1:streetAddress](https://www.gs1.org/voc/streetAddress)    |
-| _addressLocality       | Language-tagged string | (Required) See [gs1:addressLocality](https://www.gs1.org/voc/addressLocality)  |
-| _postalCode            | String                 | (Required) See [gs1:postalCode](https://www.gs1.org/voc/postalCode)       |
-| _addressCountry        | Country (wrapper)      | (Required) See [gs1:addressCountry](https://www.gs1.org/voc/addressCountry)   |
-| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
-| geo                    | GeoCoordinates or GeoShape | (Required) See [gs1:geo](https://www.gs1.org/voc/geo) |
-| _GeoCoordinates        | Latitude/longitude (wrapper) | (Conditional) See [gs1:GeoCoordinates](https://www.gs1.org/voc/GeoCoordinates) |
-| __latitude | Float | (Required) See [gs1:latitude](https://www.gs1.org/voc/latitude) |
-| __longitude | Float | (Required) See [gs1:longitude](https://www.gs1.org/voc/longitude) |
-| _GeoShape | Polygon | (Conditional) See [gs1:GeoShape](https://gs1.org/voc/GeoShape) |
-| __polygon | String | (Required) See [gs1:polygon](https://gs1.org/voc/polygon) |
-
-The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
-
-```json
-{
-    "@context": {
-        "gs1": "https://gs1.org/voc/",
-        "xsd": "https://www.w3.org/2001/XMLSchema#",
-        "@vocab": "https://gs1.org/voc/"
-    },
-    "@type": "gs1:Place",
-    "@id": "https://id.gs1.org/414/4000001100002",
-    "physicalLocationName": [
-          {
-              "@value": "Example Location One",
-              "@language": "en"
-          }
-      ],
-    "locationGLN": "4000001100002",
-    "address": [
-        {
-            "streetAddress": [
-                {
-                    "@value": "Sample Street 123",
-                    "@language": "en"
-                }
-            ],
-            "addressLocality": [
-                {
-                    "@value": "Sample City",
-                    "@language": "en"
-                }
-            ],
-            "postalCode": "12345",
-            "addressCountry": {
-                "countryCode": "DE",
-                "@type": "gs1:Country"
-            },
-            "@type": "gs1:PostalAddress"
-        }
-    ],
-    "geo": {
-        "latitude": {
-            "@value": "50.942499",
-            "@type": "xsd:float"
-        },
-        "longitude": {
-            "@value": "6.898247",
-            "@type": "xsd:float"
-        },
-        "@type": "gs1:GeoCoordinates"
-    },
-    "geo": {
-        "polygon": "50.942499 6.898247 50.942275 6.898292 50.942263 6.898094 50.942106 6.898126 50.942130 6.898526 50.942512 6.898451 50.942499 6.898247",
-        "@type": "gs1:GeoShape"
-    },
-```
-
 #### Party master data
 
 According to the EUDR (EU 2023, §9), affected parties need to have a record of "... the name, postal address and email address of any business or person from whom they have been supplied with the relevant products (...) [and] of any business, operator or trader to whom the relevant products have been supplied".
 
-Hence, a simple party master data record should comprise at least the following data:
+Hence, a simple party master data record for an organisation, identified through a Global Location Number (GLN), may comprise the following data:
 
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
@@ -519,12 +426,160 @@ The example data structure provided below can be implemented across the APIs of 
 }
 ```
 
-## Contributors
+#### Location master data
+
+In addition to party master data, it may also be beneficial to share location master data. For instance, an EUDR system could store/provide the corresponding address data, geo coordinates or polygons of fields to ease data provision. In this spirit, a simple party master data record for a physical location, identified through a Global Location Number (GLN), may comprise the following data:
+
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| physicalLocationName   | Language-tagged string | (Required) See [gs1:physicalLocationName](https://www.gs1.org/voc/physicalLocationName)   |
+| locationGLN            | String                 | (Required) See [gs1:locationGLN](https://www.gs1.org/voc/locationGLN)    |
+| address                | Address (wrapper)      | (Required) See [gs1:PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
+| _streetAddress         | Language-tagged string | (Required) See [gs1:streetAddress](https://www.gs1.org/voc/streetAddress)    |
+| _addressLocality       | Language-tagged string | (Required) See [gs1:addressLocality](https://www.gs1.org/voc/addressLocality)  |
+| _postalCode            | String                 | (Required) See [gs1:postalCode](https://www.gs1.org/voc/postalCode)       |
+| _addressCountry        | Country (wrapper)      | (Required) See [gs1:addressCountry](https://www.gs1.org/voc/addressCountry)   |
+| __countryCode          | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
+| geo                    | GeoCoordinates or GeoShape | (Required) See [gs1:geo](https://www.gs1.org/voc/geo) |
+| _GeoCoordinates        | Latitude/longitude (wrapper) | (Conditional) See [gs1:GeoCoordinates](https://www.gs1.org/voc/GeoCoordinates) |
+| __latitude | Float | (Required) See [gs1:latitude](https://www.gs1.org/voc/latitude) |
+| __longitude | Float | (Required) See [gs1:longitude](https://www.gs1.org/voc/longitude) |
+| _GeoShape | Polygon | (Conditional) See [gs1:GeoShape](https://gs1.org/voc/GeoShape) |
+| __polygon | String | (Required) See [gs1:polygon](https://gs1.org/voc/polygon) |
+
+The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+
+```json
+{
+    "@context": {
+        "gs1": "https://gs1.org/voc/",
+        "xsd": "https://www.w3.org/2001/XMLSchema#",
+        "@vocab": "https://gs1.org/voc/"
+    },
+    "@type": "gs1:Place",
+    "@id": "https://id.gs1.org/414/4000001100002",
+    "physicalLocationName": [
+          {
+              "@value": "Example Location One",
+              "@language": "en"
+          }
+      ],
+    "locationGLN": "4000001100002",
+    "address": [
+        {
+            "streetAddress": [
+                {
+                    "@value": "Sample Street 123",
+                    "@language": "en"
+                }
+            ],
+            "addressLocality": [
+                {
+                    "@value": "Sample City",
+                    "@language": "en"
+                }
+            ],
+            "postalCode": "12345",
+            "addressCountry": {
+                "countryCode": "DE",
+                "@type": "gs1:Country"
+            },
+            "@type": "gs1:PostalAddress"
+        }
+    ],
+    "geo": {
+        "latitude": {
+            "@value": "50.942499",
+            "@type": "xsd:float"
+        },
+        "longitude": {
+            "@value": "6.898247",
+            "@type": "xsd:float"
+        },
+        "@type": "gs1:GeoCoordinates"
+    }
+}
+```
+
+#### Product master data
+
+Analogous to party and location master data, it also makes sense to share master data of  affected trade items. A simple party master data record for a product, identified through a Global Trade Item Number (GTIN), may comprise the following data:
+
+| Field name             | Data type              | Description                    |
+| ---------------------- | ---------------------- | ------------------------------ |
+| productName            | Language-tagged string | (Required) See [gs1:productName](https://www.gs1.org/voc/productName) |
+| gtin                   | String                 | (Required) See [gs1:gtin](https://www.gs1.org/voc/gtin) |
+| regulatedProductName   | Language-tagged string | (Required) See [gs1:regulatedProductName](https://www.gs1.org/voc/regulatedProductName) |
+| productDescription     | Language-tagged string | (Required) See [gs1:productDescription](https://www.gs1.org/voc/productDescription) |
+| countryOfOrigin        | Country (wrapper)      | (Optional) See [gs1:countryOfOrigin](https://www.gs1.org/voc/countryOfOrigin) |
+| _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) See [gs1:countryCode](https://www.gs1.org/voc/countryCode) |
+| hsCode                 | String                 | (Optional) Harmonized System Code |
+| scientificName         | String                 | (Required) Scientific name |
+| commodityDescription   | Language-tagged string | (Required) Description of commodity |
+
+```json
+{
+    "@context": {
+        "gs1": "https://gs1.org/voc/",
+        "xsd": "https://www.w3.org/2001/XMLSchema#",
+        "ex": "https://example.com/voc/",
+        "@vocab": "https://gs1.org/voc/"
+    },
+    "@type": "gs1:Product",
+    "@id": "https://id.gs1.org/01/04012345123456",
+    "productName": [
+        {
+            "@value": "Example Cocoa Butter",
+            "@language": "en"
+        }
+    ],
+    "gtin": "04012345123456",
+    "regulatedProductName": [
+        {
+            "@value": "Cocoa butter",
+            "@language": "en"
+        }
+    ],
+    "productDescription": [
+        {
+            "@value": "Example cocoa butter is a creamy, vegetable fat extracted from the cocoa bean, renowned for its rich aroma and smooth texture.",
+            "@language": "en"
+        }
+    ],
+    "countryOfOrigin": [
+        {
+            "@type": "gs1:Country",
+            "countryCode": "EC"
+        }
+    ],
+    "ex:hsCode": "18040000",
+    "ex:scientificName": "Theobroma cacao",
+    "ex:commodityDescription": [
+        {
+            "@value": "Cocoa refers to the dried and fully fermented seeds of Theobroma cacao, from which cocoa butter, cocoa powder, and chocolate are made. It is a key ingredient in confectionery and beverages, valued for its rich flavour and aroma.",
+            "@language": "en"
+        }
+    ]
+}
+```
+
+## Authors
 
 | Name                   | Affiliation              | Job Title              |
 | ---------------------- | ------------------------ | ---------------------- |
 | Dr Ralph Troeger       | GS1 Germany              | Senior Manager AIDC    |
 | Elisabeth Kikidis      | GS1 Germany              | Senior Manager AIDC    |
+
+## Acknowledgements
+
+The following table lists, in alphabetical order of their surname, persons from GS1 Germany Solution Partners having contributed to this Green Paper so far. We would like to take the opportunity to express our gratitude for their valuable support.
+
+| Name             | Affiliation     | Job Title                        |
+| ---------------- | --------------- | -------------------------------- |
+| Sven Böckelmann  | benelog         | Head of Software Development     |
+| Carsten Mohr     | ftrace          | Senior Technical Product Manager |
+| Falk Nieder      | European EPC Competence Center GmbH (EECC) | Head of Software and Traceability Solutions |
+| Patrik Rothe     | ftrace          | Head of osapiens ftrace          |
 
 ## References
 
