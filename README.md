@@ -169,17 +169,17 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | eoriNumber             | String | (Conditional) Economic Operators' Registration and Identification number |
 | hsCode                 | String | (Optional) Harmonized System Code |
 | originList             | List of OriginDetails  | (Required) |
-| _originDetails         |  |  |
-| __areaSize             |  |  |
-| ___value               |  |  |
-| ___unitCode            |  |  |
-| __producerIdentification |  |  |
-| ___producer            |  |  |
+| _originDetails         | Wrapper | (Required) Structure comprising origin details |
+| __areaSize             | Wrapper | (Required) Quantitative value to specify a field's area size, consisting of a point value and a unit of measurement |
+| ___value               | Float | (Required) A floating-point numeric value that is qualified by the corresponding measurement unit code |
+| ___unitCode            | UN/CEFACT Rec. 20 Unit Code | (Required) A string value indicating a Measurement Unit from UN/ECE Recommendation 20 |
+| __producerIdentification | String               | (Required) |
+| ___type                | Producer Identification Type ID (URI) | (Required) |
 | __geofence             | String (Polygon according to CBV 2.0, 9.3.1) | (Conditional) Area polygon (geofence) as specified in RFC 7946 consisting of an array of longitude-latitude-coordinates |
-| __geolocation          | URI (Geo URI)          | (Conditional) |
+| __geolocation          | URI (Geo URI)          | (Conditional) Geographic coordinates, expressed as a Geo URI according to RFC 5870 |
 | harvestDateStart       | Date                   | (Optional) The harvest start date |
 | harvestDateEnd         | Date                   | (Optional) The harvest end date |
-| partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify a legal entity |
+| partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
 
 #### EPCIS 2.0 JSON/JSON-LD example
 
@@ -314,13 +314,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 							<eudr:value>100</eudr:value>
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
-						<!-- (Optional) Producer/farmer information -->
-						<eudr:producerIdentification>
-              <!-- (Conditional) Preferred: ID such as a party GLN -->
-              <eudr:producer type="https://example.com/producerIDType:partyGLN">4012345123456</>
-              <!-- (Conditional) Free text, if proper ID is not available -->
-              <eudr:producer type="https://example.com/producerIDType:organizationName">Farmer ABC</>
-						</eudr:producerIdentification>
+            <!-- (Conditional) Option 1, preferred: ID such as a party GLN -->
+						<eudr:producerIdentification type="https://example.com/producerIDType:partyGLN">4012345123456</eudr:producerIdentification>
 					</eudr:originDetails>
 					<eudr:originDetails>
 						<!-- Identification of the plot of land via geolocation -->
@@ -329,12 +324,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 							<eudr:value>2.5</eudr:value>
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
-						<eudr:producerIdentification>
-              <!-- (Conditional) Preferred: ID such as a party GLN -->
-              <eudr:producer type="https://example.com/producerIDType:partyGLN">4012345123456</>
-              <!-- (Conditional) Free text, if proper ID is not available -->
-              <eudr:producer type="https://example.com/producerIDType:organizationName">Farmer ABC</>
-						</eudr:producerIdentification>
+               <!-- (Conditional) Option 2: free text, if proper ID (see Option 1 above) is not available --> 
+          <eudr:producerIdentification type="https://example.com/producerIDType:organizationName">Farmer ABC</eudr:producerIdentification>
 					</eudr:originDetails>
 				</eudr:originList>
 			</ObjectEvent>
