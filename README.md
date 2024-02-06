@@ -53,9 +53,9 @@ It is important to note that the EUDR specifies a number of responsibilities for
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
 3. Perform due diligence for each affected product/supplier (EU 2023, § 8), including the collection of information, data and documents (EU 2023, § 9), risk assessments (EU 2023, § 10), and risk mitigation measures (EU 2023, § 11).
 4. Keep (for five years) all relevant data like product description, quantity, country of production, geolocation of plots where relevant commodities were produced as well as date/time range of harvest/production. [EU 2023, § 9.1]
-5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the coresponding reference numbers of the due diligence statements. [EU 2023, § 4.7]
+5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the corresponding reference numbers of the due diligence statements. [EU 2023, § 4.7]
 
-Note that trading companies making relevant commodities and products available on the EU market also have to fulfill a number of obligations. The latter are partly similar to the ones stated above.
+Note that trading companies making relevant commodities and products available on the EU market also have to fulfil a number of obligations. The latter are partly similar to the ones stated above.
 
 **In scope:**
 
@@ -73,7 +73,7 @@ Note that trading companies making relevant commodities and products available o
 5. Specification of the EU Due Diligence Statement message.
 6. Mapping of GS1 data structures to the EU Due Diligence Statement.
 7. Questionnaire for suppliers for gathering relevant data.
-8. Concrete system architecture (e.g. authorisation, authentification)
+8. Concrete system architecture (e.g. authorisation, authentication)
 9. Technical implementation considerations (e.g. system design)
 10. Non-functional requirements (e.g. usability, performance)
 11. Any other subject not explicitly mentioned to be in scope.
@@ -94,7 +94,7 @@ The following illustrations help to understand in which cases the solution appro
 
 When an importing company needs to gather data related to the EUDR regarding the origin of products, it may request this information from its suppliers through the use of GS1 data structures as recommended in this document, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform.
 
-This standardised communication method benefits suppliers by shielding them from the need to adapt to various prpoprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
+This standardised communication method benefits suppliers by shielding them from the need to adapt to various proprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
 
 ![Case 1](./images/EUDR_Scenario1.jpg "Case 1")
 *Figure 1: Application scenario 1*
@@ -138,7 +138,7 @@ The following sections provide guidance on how this data may be shared by levera
 
 ### Event data
 
-Event data are records of the completion of business process steps in which physical or digital entities are handled.It confirms the carrying out of a physical process or a comparable digital process. (GS1 2023c, 6.1.3)
+Event data are records of the completion of business process steps in which physical or digital entities are handled. It confirms the carrying out of a physical process or a comparable digital process. (GS1 2023c, 6.1.3)
 
 #### Preliminary remark
 
@@ -150,7 +150,7 @@ Once the EPCIS event message structure (including its fields and values) is form
 
 The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used for the EPCIS Origin Declaration Event is an [ObjectEvent](https://ref.gs1.org/epcis/ObjectEvent).
 
-Each EPCIS event relates to one specifc product.
+Each EPCIS event relates to one specific product.
 
 The following table defines the content of the EPCIS Origin Declaration Event:
 
@@ -556,7 +556,7 @@ Analogous to party and location master data, it also makes sense to share master
     "ex:scientificName": "Theobroma cacao",
     "ex:commodityDescription": [
         {
-            "@value": "Cocoa refers to the dried and fully fermented seeds of Theobroma cacao, from which cocoa butter, cocoa powder, and chocolate are made. It is a key ingredient in confectionery and beverages, valued for its rich flavor and aroma.",
+            "@value": "Cocoa refers to the dried and fully fermented seeds of Theobroma cacao, from which cocoa butter, cocoa powder, and chocolate are made. It is a key ingredient in confectionery and beverages, valued for its rich flavour and aroma.",
             "@language": "en"
         }
     ]
