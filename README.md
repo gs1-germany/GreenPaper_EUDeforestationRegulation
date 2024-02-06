@@ -178,8 +178,9 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | __areaSize             | Wrapper | (Optional) Quantitative value to specify a field's area size, consisting of a point value and a unit of measurement |
 | ___value               | Float | (Required) A floating-point numeric value that is qualified by the corresponding measurement unit code |
 | ___unitCode            | UN/CEFACT Rec. 20 Unit Code | (Required) A string value indicating a Measurement Unit from UN/ECE Recommendation 20 |
-| __producerIdentification | String               | (Required) |
+| __producerIdentification | Wrapper               | (Required) |
 | ___type                | Producer Identification Type ID (URI) | (Required) |
+| ___id                  | String | (Required) |
 
 #### EPCIS 2.0 JSON/JSON-LD example
 
