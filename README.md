@@ -5,6 +5,8 @@
 
 GS1 Germany Green Paper on how meeting the requirements of the EUDR can be supported with GS1 standards.
 
+![Title image](./images/GreenPaperTitleImage.jpg "Title image (in part created with OpenAI DALL-E)")
+
 ## Disclaimer
 
 THIS DOCUMENT IS A GS1 GERMANY GREEN PAPER ONLY, NOT A RATIFIED APPLICATION STANDARD OR IMPLEMENTATION GUIDELINE APPROVED BY ANY GS1/GS1 GERMANY BOARD OR COMMITTEE. ITS PURPOSE IS TO STIMULATE DISCUSSION AND TO PAVE THE WAY FOR DEVELOPING A SOLUTION APPROACH FOR MEETING EUDR REQUIREMENTS USING GS1 STANDARDS. IT ALSO AIMS TO CONTRIBUTE TO FUTURE GS1 STANDARDISATION EFFORTS IN THIS AREA.
@@ -121,25 +123,30 @@ The following EUDR excerpt shows the required content of the Due Diligence State
 
 ### Master data vs. event data
 
-Explain that the above DDS consists of:
-- Visibility data (dynamic)
-- Product, organisation and location master data (static)
+Data as required by the EUDR can be grouped into two categories:
+
+- *Dynamic:* (Visibility) event data
+- *Static:* Master Data for products, organisations, and locations
+
+The following sections provide guidance on how this data may be shared by leveraging GS1 data structures.
 
 ### Event data
 
+Event data are records of the completion of business process steps in which physical or digital entities are handled.It confirms the carrying out of a physical process or a comparable digital process. (GS1 2023c, 6.1.3)
+
 #### Preliminary remark
 
-Note that none of the specified EPCIS user extension fields are standardised yet. This is why the latter are declared under the `example` namespace.
+Note that the specified EPCIS event structure contains user extension fields and user vocabulary elements. The latter are declared or formed by using the `example` namespace. In other words, they are not yet standardised.
 
-Once the EPCIS event message structures are  standardised, e.g. in a GS1 application standard, the respective sections should be updated accordingly.
-
-#### Design considerations
-
-- e.g. each EPCIS event is related to (one?) specific product (TBD)
+Once the EPCIS event message structure (including its fields and values) is formally standardised, e.g. in a GS1 application standard, any documentation or implementation referring to it should be updated accordingly.
 
 #### Event data structure
 
-The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used for the EPCIS Origin Declaration Event is an [ObjectEvent](https://ref.gs1.org/epcis/ObjectEvent). The following table specifies its containing fields.
+The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used for the EPCIS Origin Declaration Event is an [ObjectEvent](https://ref.gs1.org/epcis/ObjectEvent).
+
+Each EPCIS event relates to one specifc product.
+
+The following table defines the content of the EPCIS Origin Declaration Event:
 
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
@@ -147,32 +154,33 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 | eventTimeZoneOffset    | String                 | (Required) See [epcis:eventTimeZoneOffset](https://ref.gs1.org/epcis/eventTimeZoneOffset)   |
 | action                 | Code value (`OBSERVE`) | (Required) See [epcis:action](https://ref.gs1.org/epcis/action)    |
 | bizStep | BizStep URI (`https://example.com/bizStep/declaring_origin`) | (Required) See [epcis:bizStep](https://ref.gs1.org/epcis/bizStep)   |
-| readPoint              |  Place (Wrapper)        | (Optional) See [epcis:readPoint](https://ref.gs1.org/epcis/readPoint)   |
+| readPoint              | Place (Wrapper)         | (Optional) See [epcis:readPoint](https://ref.gs1.org/epcis/readPoint)   |
 | _id                    | Location ID (GS1 Digital Link URI) | (Required) |
 | bizTransactionList     | List of BizTransactions | (Optional) See [epcis:bizTransactionList](https://ref.gs1.org/epcis/bizTransactionList)     |
 | _type                  | Business Transaction Type ID (URI) | (Optional) See [epcis:bizTransactionType](https://ref.gs1.org/epcis/bizTransactionType)   |
 | _bizTransaction        | BizTransaction ID (URI) | (Required) See [epcis:BizTransaction](https://ref.gs1.org/epcis/BizTransaction)   |
 | quantityList           | List of QuantityElements | (Required) See [epcis:quantityList](https://ref.gs1.org/epcis/quantityList)   |
-| _QuantityElement       | Wrapper                 | (Required) See [epcis:QuantityElement](https://ref.gs1.org/epcis/QuantityElement)   |
+| _QuantityElement       | Wrapper                | (Required) See [epcis:QuantityElement](https://ref.gs1.org/epcis/QuantityElement)   |
 | __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcis:epcClass](https://ref.gs1.org/epcis/epcClass)   |
 | __quantity             | Decimal                | (Required) See [epcis:quantity](https://ref.gs1.org/epcis/quantity)   |
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
-| countryList            |  |  |
-| _country               |  |  |
-| eoriNumber             | conditional |  |
-| hsCode                 | optional |  |
-| originList             |  |  |
-| _originDetails         |  |  |
-| __areaSize             |  |  |
-| ___value               |  |  |
-| ___unitCode            |  |  |
-| __producerIdentification |  |  |
-| ___producer            |  |  |
-| __geofence             |  |  |
-| __geolocation          |  |  |
-| harvestDateStart       |  |  |
-| harvestDateEnd         |  |  |
-| partyGLN               |  |  |
+| harvestDateStart       | Date                   | (Optional) The harvest start date |
+| harvestDateEnd         | Date                   | (Optional) The harvest end date |
+| eoriNumber             | String | (Conditional) Economic Operators' Registration and Identification number |
+| partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
+| hsCode                 | String | (Optional) Harmonized System Code |
+| countryList            | List of CountryCodes   | (Required) |
+| _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) A short text string code specifying a country |
+| originList             | List of OriginDetails  | (Required) |
+| _originDetails         | Wrapper | (Required) Structure comprising origin details |
+| __geofence             | String | (Conditional) Area polygon (geofence) as specified in CBV 2.0, 9.3.1, consisting of an array of longitude-latitude-coordinates |
+| __geolocation          | URI (Geo URI)          | (Conditional) Geographic coordinates, expressed as a Geo URI according to RFC 5870 |
+| __areaSize             | Wrapper | (Optional) Quantitative value to specify a field's area size, consisting of a point value and a unit of measurement |
+| ___value               | Float | (Required) A floating-point numeric value that is qualified by the corresponding measurement unit code |
+| ___unitCode            | UN/CEFACT Rec. 20 Unit Code | (Required) A string value indicating a Measurement Unit from UN/ECE Recommendation 20 |
+| __producerIdentification | Wrapper               | (Required) |
+| ___type                | Producer Identification Type ID (URI) | (Required) |
+| ___id                  | String | (Required) |
 
 #### EPCIS 2.0 JSON/JSON-LD example
 
@@ -215,37 +223,44 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
             "uom": "KGM"
           }
         ],
-        "eudr:countryList": {
-          "eudr:country": "CO"
-        },
-        "eudr:eoriNumber": "DE12345678912345",
-        "eudr:originList": {
-          "eudr:originDetails": [
-            {
-              "eudr:areaSize": {
-                "eudr:value": "100",
-                "eudr:unitCode": "HAR"
-              },
-              "eudr:producerIdentification": {
-                "eudr:producer": "Farmer ABC"
-              },
-              "eudr:geofence": "[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]"
-            },
-            {
-              "eudr:geolocation": "geo:50.942499,6.898247",
-              "eudr:areaSize": {
-                "eudr:value": "2.5",
-                "eudr:unitCode": "HAR"
-              },
-              "eudr:producerIdentification": {
-                "eudr:producer": "Farmer DEF"
-              }
-            }
-          ]
-        },
         "eudr:harvestDateStart": "2024-01-20",
         "eudr:harvestDateEnd": "2024-01-18",
-        "eudr:partyGLN": "https://id.gs1.org/417/4000001000005"
+        "eudr:eoriNumber": "DE12345678912345",
+        "eudr:partyGLN": "https://id.gs1.org/417/4000001000005",
+        "eudr:hsCode": "18040000",
+        "eudr:countryList": [
+          {
+            "eudr:countryCode": "CO"
+          }
+        ],
+        "eudr:originList": [
+          {
+            "eudr:originDetails": [
+              {
+                "eudr:geofence": "[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]",
+                "eudr:areaSize": {
+                  "eudr:value": "100",
+                  "eudr:unitCode": "HAR"
+                },
+                "producerIdentification": {
+                  "type": "https://example.com/producerIDType:partyGLN",
+                  "id": "4012345123456"
+                }
+              },
+              {
+                "eudr:geolocation": "geo:50.942499,6.898247",
+                "eudr:areaSize": {
+                  "eudr:value": "2.5",
+                  "eudr:unitCode": "HAR"
+                },
+                "eudr:producerIdentification": {
+                  "type": "https://example.com/producerIDType:organizationName",
+                  "id": "Farmer ABC"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   }
@@ -269,7 +284,7 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 					<id>https://id.gs1.org/414/4000001100002</id>
 				</readPoint>
 				<bizTransactionList>
-					<!-- TBD: most suitable URI notation. URN-based URI vs. HTTPS URIs, CBV 2.0, 8.5.3 vs. 8.5.5 -->
+					<!-- (Optional) Business Transaction IDs need to be URIs, e.g. URN-based URI or HTTPS URIs. See CBV 2.0, 8.5. for available options. -->
 					<bizTransaction type="https://example.com/btt/dueDiligenceStatementNumber">https://epcis.example.com/user/vocab/bt/DDS.123</bizTransaction>
 					<!-- (Optional) Business transaction reference(s) e.g., purchase order number for later mapping -->
 					<bizTransaction type="https://ref.gs1.org/cbv/BTT-po">urn:epcglobal:cbv:bt:4000001000005:PO12345</bizTransaction>
@@ -282,38 +297,32 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 						<uom>KGM</uom>
 					</quantityElement>
 				</quantityList>
-				<!-- TBD: Use GS1 Web Voc (if applicable) or proceed with eudr user extensions for the time being? -->
 				<eudr:harvestDateStart>2024-01-20</eudr:harvestDateStart>
 				<eudr:harvestDateEnd>2024-01-18</eudr:harvestDateEnd>
-				<!-- Own EORI (Economic Operators Registration and Identification) number -->
+				<!-- (Optional) Own EORI (Economic Operators Registration and Identification) number -->
 				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
 				<!-- (Optional) Party GLN identifying the declaring party -->
 				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
 				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
-        <!-- optional -->
-        <eudr:hsCode>18040000</eudr:hsCode>
+				<!-- (Optional) Harmonized System (HS) Code -->
+				<eudr:hsCode>18040000</eudr:hsCode>
 				<eudr:countryList>
 					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
-					<eudr:country>CO</eudr:country>
+					<eudr:countryCode>CO</eudr:countryCode>
 				</eudr:countryList>
 				<!-- Origin information -->
 				<eudr:originList>
-					<!-- 1 or more occurrences (one container = one geolocation or polygon) -->
+					<!-- One or more originDetails containers (one container = one geolocation or polygon) -->
 					<eudr:originDetails>
 						<!-- Identification of the plot of land via polygon -->
 						<!-- See also: https://ref.gs1.org/standards/cbv/#page=118 -->
 						<eudr:geofence>[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]</eudr:geofence>
-						<!-- Optional area size -->
 						<eudr:areaSize>
 							<eudr:value>100</eudr:value>
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
-						<!-- Optional producer/farmer information -->
-						<eudr:producerIdentification>
-							<!-- TBD: really freetext or proper ID? -->
-              <eudr:producer type="xyz:PartyGLN">4012345123456</>
-              <eudr:producer type="xyz:FREETEXT">Farmer ABC</>
-						</eudr:producerIdentification>
+						<!-- (Conditional) Option 1, preferred: ID such as a party GLN -->
+						<eudr:producerIdentification type="https://example.com/producerIDType:partyGLN" id="4012345123456"/>
 					</eudr:originDetails>
 					<eudr:originDetails>
 						<!-- Identification of the plot of land via geolocation -->
@@ -322,10 +331,8 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 							<eudr:value>2.5</eudr:value>
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
-						<eudr:producerIdentification>
-							<eudr:producer type="xyz:PartyGLN">4012345123456</>
-              <eudr:producer type="xyz:FREETEXT">Farmer ABC</>
-						</eudr:producerIdentification>
+						<!-- (Conditional) Option 2: free text, if proper ID (see Option 1 above) is not available -->
+						<eudr:producerIdentification type="https://example.com/producerIDType:organizationName" id="Farmer ABC"/>
 					</eudr:originDetails>
 				</eudr:originList>
 			</ObjectEvent>
@@ -335,6 +342,8 @@ The type of the [EPCIS event](https://ref.gs1.org/epcis/EPCISEvent) to be used f
 ```
 
 ### Master Data
+
+Master data are descriptive data elements of an entity that are static or nearly so. For a product, for example, master data might include the trade item’s dimensions, descriptive text, nutritional information in the case of a food product, and so on. For a legal entity, master data might include the name of the organisation, its postal address, geographic coordinates, contact information, and so on. (GS1 2023c, 6.1.1)
 
 IDEE: Drei Tabellen mit geforderten Infos gemäß EUDR
 a. Product Master Data
@@ -444,7 +453,7 @@ Hence, a simple party master data record should comprise at least the following 
 | Field name             | Data type              | Description                    |
 | ---------------------- | ---------------------- | ------------------------------ |
 | organizationName       | Language-tagged string | (Required) See [gs1:organizationName](https://www.gs1.org/voc/organizationName])    |
-| globalLocationNumber   | String                 | (Required) See [globalLocationNumber](https://www.gs1.org/voc/globalLocationNumber)    |
+| partyGLN               | String                 | (Required) See [gs1:partyGLN](https://www.gs1.org/voc/partyGLN)    |
 | address                | Address (wrapper)      | (Required) See [gs1:PostalAddress](https://www.gs1.org/voc/PostalAddress)    |
 | _streetAddress         | Language-tagged string | (Required) See [gs1:streetAddress](https://www.gs1.org/voc/streetAddress)    |
 | _addressLocality       | Language-tagged string | (Required) See [gs1:addressLocality](https://www.gs1.org/voc/addressLocality)  |
@@ -516,8 +525,6 @@ The example data structure provided below can be implemented across the APIs of 
 | ---------------------- | ------------------------ | ---------------------- |
 | Dr Ralph Troeger       | GS1 Germany              | Senior Manager AIDC    |
 | Elisabeth Kikidis      | GS1 Germany              | Senior Manager AIDC    |
-| TBC: Sabine Klaeser    | GS1 Germany              | Senior Manager AIDC    |
-| TBC: Frank Kuhlmann    | GS1 Germany              | Lead AIDC              |
 
 ## References
 
@@ -525,5 +532,7 @@ The example data structure provided below can be implemented across the APIs of 
 of 31 May 2023 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation and repealing Regulation (EU) No 995/2010, Official Journal of the European Union, June 2023*. Retrieved from [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115)
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
-- GS1 (2023). *GS1 Web Vocabulary*, Version 1.9, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
-- GS1 (2023). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
+- GS1 (2023a). *GS1 Web Vocabulary, Version 1.9*, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
+- GS1 (2023b). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
+- GS1 (2023c). *GS1 System Architecture. How GS1 standards fit together, Release 11.1, Mar 2023*, Available at [https://www.gs1.org/standards/gs1-system-architecture-document/current-standard](https://www.gs1.org/standards/gs1-system-architecture-document/current-standard)
+- Mayrhofer, A./Spanring, C. (2010). *A Uniform Resource Identifier for Geographic Locations ('geo' URI)*, RFC 5870, Retrieved from [https://datatracker.ietf.org/html/rfc5870](https://datatracker.ietf.org/html/rfc5870)
