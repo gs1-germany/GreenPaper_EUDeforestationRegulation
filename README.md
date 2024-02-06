@@ -303,9 +303,9 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
 				<!-- (Optional) Party GLN identifying the declaring party -->
 				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
-				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
 				<!-- (Optional) Harmonized System (HS) Code -->
 				<eudr:hsCode>18040000</eudr:hsCode>
+        <!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
 				<eudr:countryList>
 					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
 					<eudr:countryCode>CO</eudr:countryCode>
