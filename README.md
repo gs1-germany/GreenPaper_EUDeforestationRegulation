@@ -92,14 +92,14 @@ The following illustrations help to understand in which cases the solution appro
 
 #### Case 1: Party which needs to receive and hand over EUDR-relevant data
 
-When an importing company needs to gather data related to the EUDR regarding the origin of products, it can request this information from its suppliers through the use of GS1 data structures, in particular an EPCIS Origin Declaration Event. This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform. This standardised communication method benefits suppliers by shielding them from the need to adapt to various prpoprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
+When an importing company needs to gather data related to the EUDR regarding the origin of products, it can request this information from its suppliers through the use of GS1 data structures, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform. This standardised communication method benefits suppliers by shielding them from the need to adapt to various prpoprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
 
 ![Case 1](./images/EUDR_Scenario1.jpg "Case 1")
 *Figure 1: Application scenario 1*
 
 #### Case 2: Several systems requiring to share EUDR-relevant data
 
-INPUT ELI (BRIEF DESCRIPTION)
+In this context, we are considering a situation where there is a traceability system in place in the upstream supply chain. Such a system could be managed by third party solution providers, government agencies, or organisations responsible for certification and quality control. The EUDR-relevant data can be gathered and shared using the EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). Therefore, this recommendation may help to enhance interoperability among various systems for traceability, transparency, and compliance with the EUDR that are used throughout value networks.
 
 ![Case 2](./images/EUDR_Scenario2.jpg "Case 2")
 *Figure 2: Application scenario 2*
