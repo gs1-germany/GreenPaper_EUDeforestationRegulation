@@ -222,37 +222,44 @@ The following table defines the content of the EPCIS Origin Declaration Event:
             "uom": "KGM"
           }
         ],
-        "eudr:countryList": {
-          "eudr:country": "CO"
-        },
-        "eudr:eoriNumber": "DE12345678912345",
-        "eudr:originList": {
-          "eudr:originDetails": [
-            {
-              "eudr:areaSize": {
-                "eudr:value": "100",
-                "eudr:unitCode": "HAR"
-              },
-              "eudr:producerIdentification": {
-                "eudr:producer": "Farmer ABC"
-              },
-              "eudr:geofence": "[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]"
-            },
-            {
-              "eudr:geolocation": "geo:50.942499,6.898247",
-              "eudr:areaSize": {
-                "eudr:value": "2.5",
-                "eudr:unitCode": "HAR"
-              },
-              "eudr:producerIdentification": {
-                "eudr:producer": "Farmer DEF"
-              }
-            }
-          ]
-        },
         "eudr:harvestDateStart": "2024-01-20",
         "eudr:harvestDateEnd": "2024-01-18",
-        "eudr:partyGLN": "https://id.gs1.org/417/4000001000005"
+        "eudr:eoriNumber": "DE12345678912345",
+        "eudr:partyGLN": "https://id.gs1.org/417/4000001000005",
+        "eudr:hsCode": "18040000",
+        "eudr:countryList": [
+          {
+            "eudr:countryCode": "CO"
+          }
+        ],
+        "eudr:originList": [
+          {
+            "eudr:originDetails": [
+              {
+                "eudr:geofence": "[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]",
+                "eudr:areaSize": {
+                  "eudr:value": "100",
+                  "eudr:unitCode": "HAR"
+                },
+                "producerIdentification": {
+                  "type": "https://example.com/producerIDType:partyGLN",
+                  "id": "4012345123456"
+                }
+              },
+              {
+                "eudr:geolocation": "geo:50.942499,6.898247",
+                "eudr:areaSize": {
+                  "eudr:value": "2.5",
+                  "eudr:unitCode": "HAR"
+                },
+                "eudr:producerIdentification": {
+                  "type": "https://example.com/producerIDType:organizationName",
+                  "id": "Farmer ABC"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   }
@@ -296,8 +303,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 				<!-- (Optional) Party GLN identifying the declaring party -->
 				<eudr:partyGLN>https://id.gs1.org/417/4000001000005</eudr:partyGLN>
 				<!-- (Optional) List of countries of origin where the geolocations of the producers are located -->
-        <!-- (Optional) Harmonized System (HS) Code -->
-        <eudr:hsCode>18040000</eudr:hsCode>
+				<!-- (Optional) Harmonized System (HS) Code -->
+				<eudr:hsCode>18040000</eudr:hsCode>
 				<eudr:countryList>
 					<!-- 1 or more occurrences, ISO 3166-1 Alpha-2, 2-letter country codes -->
 					<eudr:countryCode>CO</eudr:countryCode>
@@ -313,8 +320,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 							<eudr:value>100</eudr:value>
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
-            <!-- (Conditional) Option 1, preferred: ID such as a party GLN -->
-						<eudr:producerIdentification type="https://example.com/producerIDType:partyGLN">4012345123456</eudr:producerIdentification>
+						<!-- (Conditional) Option 1, preferred: ID such as a party GLN -->
+						<eudr:producerIdentification type="https://example.com/producerIDType:partyGLN" id="4012345123456"/>
 					</eudr:originDetails>
 					<eudr:originDetails>
 						<!-- Identification of the plot of land via geolocation -->
@@ -323,8 +330,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 							<eudr:value>2.5</eudr:value>
 							<eudr:unitCode>HAR</eudr:unitCode>
 						</eudr:areaSize>
-               <!-- (Conditional) Option 2: free text, if proper ID (see Option 1 above) is not available --> 
-          <eudr:producerIdentification type="https://example.com/producerIDType:organizationName">Farmer ABC</eudr:producerIdentification>
+						<!-- (Conditional) Option 2: free text, if proper ID (see Option 1 above) is not available -->
+						<eudr:producerIdentification type="https://example.com/producerIDType:organizationName" id="Farmer ABC"/>
 					</eudr:originDetails>
 				</eudr:originList>
 			</ObjectEvent>
