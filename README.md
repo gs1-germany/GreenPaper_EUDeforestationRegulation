@@ -164,22 +164,22 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcis:epcClass](https://ref.gs1.org/epcis/epcClass)   |
 | __quantity             | Decimal                | (Required) See [epcis:quantity](https://ref.gs1.org/epcis/quantity)   |
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
+| harvestDateStart       | Date                   | (Optional) The harvest start date |
+| harvestDateEnd         | Date                   | (Optional) The harvest end date |
+| eoriNumber             | String | (Conditional) Economic Operators' Registration and Identification number |
+| partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
+| hsCode                 | String | (Optional) Harmonized System Code |
 | countryList            | List of CountryCodes   | (Required) |
 | _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) A short text string code specifying a country |
-| eoriNumber             | String | (Conditional) Economic Operators' Registration and Identification number |
-| hsCode                 | String | (Optional) Harmonized System Code |
 | originList             | List of OriginDetails  | (Required) |
 | _originDetails         | Wrapper | (Required) Structure comprising origin details |
-| __areaSize             | Wrapper | (Required) Quantitative value to specify a field's area size, consisting of a point value and a unit of measurement |
+| __geofence             | String (Polygon according to CBV 2.0, 9.3.1) | (Conditional) Area polygon (geofence) as specified in RFC 7946 consisting of an array of longitude-latitude-coordinates |
+| __geolocation          | URI (Geo URI)          | (Conditional) Geographic coordinates, expressed as a Geo URI according to RFC 5870 |
+| __areaSize             | Wrapper | (Optional) Quantitative value to specify a field's area size, consisting of a point value and a unit of measurement |
 | ___value               | Float | (Required) A floating-point numeric value that is qualified by the corresponding measurement unit code |
 | ___unitCode            | UN/CEFACT Rec. 20 Unit Code | (Required) A string value indicating a Measurement Unit from UN/ECE Recommendation 20 |
 | __producerIdentification | String               | (Required) |
 | ___type                | Producer Identification Type ID (URI) | (Required) |
-| __geofence             | String (Polygon according to CBV 2.0, 9.3.1) | (Conditional) Area polygon (geofence) as specified in RFC 7946 consisting of an array of longitude-latitude-coordinates |
-| __geolocation          | URI (Geo URI)          | (Conditional) Geographic coordinates, expressed as a Geo URI according to RFC 5870 |
-| harvestDateStart       | Date                   | (Optional) The harvest start date |
-| harvestDateEnd         | Date                   | (Optional) The harvest end date |
-| partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
 
 #### EPCIS 2.0 JSON/JSON-LD example
 
@@ -309,7 +309,6 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 						<!-- Identification of the plot of land via polygon -->
 						<!-- See also: https://ref.gs1.org/standards/cbv/#page=118 -->
 						<eudr:geofence>[[6.898247,50.942499], [6.898292,50.942275], [6.898094,50.942263], [6.898126,50.942106], [6.898526,50.942130], [6.898451,50.942512], [6.898247,50.942499]]</eudr:geofence>
-						<!-- (Optional) Area size -->
 						<eudr:areaSize>
 							<eudr:value>100</eudr:value>
 							<eudr:unitCode>HAR</eudr:unitCode>
