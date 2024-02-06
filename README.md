@@ -91,7 +91,7 @@ At its core, GS1's recommendation is about a concise electronic message ('EPCIS 
 The following illustrations help to understand in which cases the solution approach candidate (referred to as 'GS1 Rec.') is applicable.
 
 **Case 1: Party which needs to receive and hand over EUDR-relevant data**
-INPUT ELI (BRIEF DESCRIPTION)
+When an importing company needs to gather data related to the EUDR regarding the origin of products, it can request this information from its suppliers through the use of GS1 data structures, in particular an EPCIS Origin Declaration Event. This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform. This standardised communication method benefits suppliers by shielding them from the need to adapt to various prpoprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
 
 ![Case 1](./images/EUDR_Scenario1.jpg "Case 1")
 *Figure 1: Application scenario 1*
