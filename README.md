@@ -92,7 +92,9 @@ The following illustrations help to understand in which cases the solution appro
 
 #### Case 1: Party which needs to receive and hand over EUDR-relevant data
 
-When an importing company needs to gather data related to the EUDR regarding the origin of products, it can request this information from its suppliers through the use of GS1 data structures, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform. This standardised communication method benefits suppliers by shielding them from the need to adapt to various prpoprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
+When an importing company needs to gather data related to the EUDR regarding the origin of products, it may request this information from its suppliers through the use of GS1 data structures as recommended in this document, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform. 
+
+This standardised communication method benefits suppliers by shielding them from the need to adapt to various prpoprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
 
 ![Case 1](./images/EUDR_Scenario1.jpg "Case 1")
 *Figure 1: Application scenario 1*
@@ -106,7 +108,7 @@ In this context, we are considering a situation where there is a traceability sy
 
 #### Case 3: Operators sharing the same EUDR solution
 
-INPUT ELI (BRIEF DESCRIPTION)
+This scenario is applicable if affected downstream parties utilise a community-based EUDR solution. In such a system, pertinent data on product origin and risk assessments can be shared through cloud-based services among (entitled) members. However, to ensure seamless connectivity and data coherence between the upstream and downstream supply chain, it is crucial to employ standardised data structures as suggested in this document. This would ensure that information flows efficiently across the entire supply chain (e.g. through reducing the risk of discrepancies and errors in data transmission).
 
 ![Case 3](./images/EUDR_Scenario3.jpg "Case 3")
 *Figure 3: Application scenario 3*
