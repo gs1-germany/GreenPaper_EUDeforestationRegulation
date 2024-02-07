@@ -52,8 +52,8 @@ It is important to note that the EUDR specifies a number of responsibilities for
 1. Ensure that products are not placed on the market or exported unless they are deforestation-free, produced in accordance with relevant legislation, and covered by a due diligence statement. (EU 2023, § 3)
 2. Make available a due diligence statement to the competent authorities while keeping a record of these statements for five years (EU 2023, § 4.1 and § 4.2)
 3. Perform due diligence for each affected product/supplier (EU 2023, § 8), including the collection of information, data and documents (EU 2023, § 9), risk assessments (EU 2023, § 10), and risk mitigation measures (EU 2023, § 11).
-4. Keep (for five years) all relevant data like product description, quantity, country of production, geolocation of plots where relevant commodities were produced as well as date/time range of harvest/production. [EU 2023, § 9.1]
-5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the corresponding reference numbers of the due diligence statements. [EU 2023, § 4.7]
+4. Keep (for five years) all relevant data like product description, quantity, country of production, geolocation of plots where relevant commodities were produced as well as date/time range of harvest/production. (EU 2023, § 9.1)
+5. Communicate to operators and to traders further down the supply chain all information necessary to demonstrate that due diligence was exercised and that no or only a negligible risk was found, including the corresponding reference numbers of the due diligence statements. (EU 2023, § 4.7)
 
 Note that trading companies making relevant commodities and products available on the EU market also have to fulfil a number of obligations. The latter are partly similar to the ones stated above.
 
@@ -92,7 +92,7 @@ The following illustrations help to understand in which cases the solution appro
 
 #### Case 1: Party which needs to receive and hand over EUDR-relevant data
 
-When an importing company needs to gather data related to the EUDR regarding the origin of products, it may request this information from its suppliers through the use of GS1 data structures as recommended in this document, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform.
+When e.g. an importing company (operator) needs to gather data related to the EUDR regarding the origin of products, it may request this information from its suppliers through the use of GS1 data structures as recommended in this document, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the operator to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform.
 
 This standardised communication method benefits suppliers by shielding them from the need to adapt to various proprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
 
@@ -122,10 +122,10 @@ In this last scenario (though rather unlikely for the foreseeable future), all a
 
 ### Due Diligence Statement
 
-The following EUDR excerpt shows the required content of the Due Diligence Statement. Not that the statement as such does not contain all data affected parties are required to collect and/or record:
+The following EUDR excerpt shows the required content of the Due Diligence Statement. Note that the statement as such does not contain all data affected parties are required to collect and/or record:
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
-*Figure 2: Due Diligence Statement as per EU (2023), Annex II*
+*Figure 5: Due Diligence Statement as per EU (2023), Annex II*
 
 ### Master data vs. event data
 
@@ -170,17 +170,18 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcis:epcClass](https://ref.gs1.org/epcis/epcClass)   |
 | __quantity             | Decimal                | (Required) See [epcis:quantity](https://ref.gs1.org/epcis/quantity)   |
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
-| harvestDateStart       | Date                   | (Optional) The harvest start date |
-| harvestDateEnd         | Date                   | (Optional) The harvest end date |
-| eoriNumber             | String | (Conditional) Economic Operators' Registration and Identification number |
+| harvestDate            | Date                   | (Conditional) The harvest date (mutually exclusive to `harvestDateStart` and `harvestDateEnd`) |
+| harvestDateStart       | Date                   | (Conditional) The harvest start date (to be used with `harvestDateEnd`, mutually exclusive to `harvestDate`) |
+| harvestDateEnd         | Date                   | (Conditional) The harvest end date (to be used with `harvestDateStart`, mutually exclusive to `harvestDate`) |
+| eoriNumber             | String | (Optional) Economic Operators' Registration and Identification number |
 | partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
 | hsCode                 | String | (Optional) Harmonized System Code |
-| countryList            | List of CountryCodes   | (Required) |
+| countryList            | List of CountryCodes   | (Optional) |
 | _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) A short text string code specifying a country |
 | originList             | List of OriginDetails  | (Required) |
 | _originDetails         | Wrapper | (Required) Structure comprising origin details |
-| __geofence             | String | (Conditional) Area polygon (geofence) as specified in CBV 2.0, 9.3.1, consisting of an array of longitude-latitude-coordinates |
-| __geolocation          | URI (Geo URI)          | (Conditional) Geographic coordinates, expressed as a Geo URI according to RFC 5870 |
+| __geofence             | String | (Conditional) Area polygon (geofence) as specified in CBV 2.0, 9.3.1, consisting of an array of longitude-latitude-coordinates (mutually exclusive to `geolocation`) |
+| __geolocation          | URI (Geo URI)          | (Conditional) Geographic coordinates, expressed as a Geo URI according to RFC 5870 (mutually exclusive to `geofence`) |
 | __areaSize             | Wrapper | (Optional) Quantitative value to specify a field's area size, consisting of a point value and a unit of measurement |
 | ___value               | Float | (Required) A floating-point numeric value that is qualified by the corresponding measurement unit code |
 | ___unitCode            | UN/CEFACT Rec. 20 Unit Code | (Required) A string value indicating a Measurement Unit from UN/ECE Recommendation 20 |
@@ -188,7 +189,7 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | ___type                | Producer Identification Type ID (URI) | (Required) |
 | ___id                  | String | (Required) |
 
-#### EPCIS 2.0 JSON/JSON-LD example
+#### EPCIS 2.0 JSON/JSON-LD example (non-normative)
 
 ```json
 {
@@ -273,7 +274,7 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 }
 ```
 
-#### EPCIS 2.0 XML example
+#### EPCIS 2.0 XML example (non-normative)
 
 ```xml
 <epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2024-01-20T03:00:00.000+02:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
@@ -371,7 +372,7 @@ Hence, a simple party master data record for an organisation, identified through
 | _contactType           | Language-tagged string | (Optional) See [gs1:contactType](https://www.gs1.org/voc/contactType)  |
 | _email                 | String                 | (Required) See [gs1:email](https://www.gs1.org/voc/email)  |
 
-The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+The **example (non-normative) JSON-LD data structure** provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
@@ -447,7 +448,7 @@ In addition to party master data, it may also be beneficial to share location ma
 | _GeoShape | Polygon | (Conditional) See [gs1:GeoShape](https://gs1.org/voc/GeoShape) |
 | __polygon | String | (Required) See [gs1:polygon](https://gs1.org/voc/polygon) |
 
-The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+The **example (non-normative) JSON-LD data structure** provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
@@ -517,6 +518,8 @@ Analogous to party and location master data, it also makes sense to share master
 | scientificName         | String                 | (Required) Scientific name |
 | commodityDescription   | Language-tagged string | (Required) Description of commodity |
 
+The **example (non-normative) JSON-LD data structure** provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+
 ```json
 {
     "@context": {
@@ -577,9 +580,9 @@ The following table lists, in alphabetical order of their surname, persons from 
 | Name             | Affiliation     | Job Title                        |
 | ---------------- | --------------- | -------------------------------- |
 | Sven Böckelmann  | benelog         | Head of Software Development     |
-| Carsten Mohr     | ftrace          | Senior Technical Product Manager |
+| Carsten Mohr     | osapiens ftrace | Senior Technical Product Manager |
 | Falk Nieder      | European EPC Competence Center GmbH (EECC) | Head of Software and Traceability Solutions |
-| Patrik Rothe     | ftrace          | Head of osapiens ftrace          |
+| Patrik Rothe     | osapiens ftrace | Head of osapiens ftrace          |
 
 ## References
 
