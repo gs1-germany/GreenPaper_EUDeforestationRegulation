@@ -230,8 +230,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
             "uom": "KGM"
           }
         ],
-        "eudr:harvestDateStart": "2024-01-20",
-        "eudr:harvestDateEnd": "2024-01-18",
+        "eudr:harvestDateStart": "2024-01-18",
+        "eudr:harvestDateEnd": "2024-01-20",
         "eudr:eoriNumber": "DE12345678912345",
         "eudr:partyGLN": "https://id.gs1.org/417/4000001000005",
         "eudr:hsCode": "18040000",
@@ -304,8 +304,8 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 						<uom>KGM</uom>
 					</quantityElement>
 				</quantityList>
-				<eudr:harvestDateStart>2024-01-20</eudr:harvestDateStart>
-				<eudr:harvestDateEnd>2024-01-18</eudr:harvestDateEnd>
+				<eudr:harvestDateStart>2024-01-18</eudr:harvestDateStart>
+				<eudr:harvestDateEnd>2024-01-20</eudr:harvestDateEnd>
 				<!-- (Optional) Own EORI (Economic Operators Registration and Identification) number -->
 				<eudr:eoriNumber>DE12345678912345</eudr:eoriNumber>
 				<!-- (Optional) Party GLN identifying the declaring party -->
