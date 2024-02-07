@@ -172,7 +172,7 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
 | harvestDateStart       | Date                   | (Optional) The harvest start date |
 | harvestDateEnd         | Date                   | (Optional) The harvest end date |
-| eoriNumber             | String | (Conditional) Economic Operators' Registration and Identification number |
+| eoriNumber             | String | (Optional) Economic Operators' Registration and Identification number |
 | partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
 | hsCode                 | String | (Optional) Harmonized System Code |
 | countryList            | List of CountryCodes   | (Required) |
