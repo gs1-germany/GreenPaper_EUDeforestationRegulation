@@ -170,8 +170,9 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | __epcClass             | Class-level ID (GS1 Digital Link URI) | (Required) See [epcis:epcClass](https://ref.gs1.org/epcis/epcClass)   |
 | __quantity             | Decimal                | (Required) See [epcis:quantity](https://ref.gs1.org/epcis/quantity)   |
 | __uom                  | UN/CEFACT Rec. 20 Unit Code | (Optional) See [epcis:uom](https://ref.gs1.org/epcis/uom)   |
-| harvestDateStart       | Date                   | (Optional) The harvest start date |
-| harvestDateEnd         | Date                   | (Optional) The harvest end date |
+| harvestDate            | Date                   | (Conditional) The harvest date (mutually exclusive to `harvestDateStart` and `harvestDateEnd`) |
+| harvestDateStart       | Date                   | (Conditional) The harvest start date (to be used with `harvestDateEnd`, mutually exclusive to `harvestDate`) |
+| harvestDateEnd         | Date                   | (Conditional) The harvest end date (to be used with `harvestDateStart`, mutually exclusive to `harvestDate`) |
 | eoriNumber             | String | (Optional) Economic Operators' Registration and Identification number |
 | partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
 | hsCode                 | String | (Optional) Harmonized System Code |
