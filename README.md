@@ -13,7 +13,7 @@ THIS DOCUMENT IS A GS1 GERMANY GREEN PAPER ONLY, NOT A RATIFIED APPLICATION STAN
 
 ## Status of this document
 
-DRAFT
+Release 1.0
 
 ## Introduction
 
