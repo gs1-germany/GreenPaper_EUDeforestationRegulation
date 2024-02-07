@@ -175,7 +175,7 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | eoriNumber             | String | (Optional) Economic Operators' Registration and Identification number |
 | partyGLN               | String                 | (Optional) 13-digit GLN that is being used to identify the legal entity of the declaring party |
 | hsCode                 | String | (Optional) Harmonized System Code |
-| countryList            | List of CountryCodes   | (Required) |
+| countryList            | List of CountryCodes   | (Optional) |
 | _countryCode           | Code value (ISO 3166 Alpha-2) | (Required) A short text string code specifying a country |
 | originList             | List of OriginDetails  | (Required) |
 | _originDetails         | Wrapper | (Required) Structure comprising origin details |
