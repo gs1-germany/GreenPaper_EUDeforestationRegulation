@@ -92,7 +92,7 @@ The following illustrations help to understand in which cases the solution appro
 
 #### Case 1: Party which needs to receive and hand over EUDR-relevant data
 
-When an importing company needs to gather data related to the EUDR regarding the origin of products, it may request this information from its suppliers through the use of GS1 data structures as recommended in this document, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the supplier to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform.
+When e.g. an importing company (operator) needs to gather data related to the EUDR regarding the origin of products, it may request this information from its suppliers through the use of GS1 data structures as recommended in this document, in particular an EPCIS Origin Declaration Event (supplemented by corresponding master data exchange). This allows the operator to conduct risk assessments and mitigation measures for the products' origins, and to submit a due diligence statement to the EU platform.
 
 This standardised communication method benefits suppliers by shielding them from the need to adapt to various proprietary data sharing mechanisms. Moreover, the importing company is required to provide its Due Diligence Statement reference number and all pertinent origin data to its customers. For this purpose, the company can again utilise the EPCIS Origin Declaration Event, ensuring a standardised way of communicating with its customers.
 
