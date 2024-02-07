@@ -189,7 +189,7 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 | ___type                | Producer Identification Type ID (URI) | (Required) |
 | ___id                  | String | (Required) |
 
-#### EPCIS 2.0 JSON/JSON-LD example
+#### EPCIS 2.0 JSON/JSON-LD example (non-normative)
 
 ```json
 {
@@ -274,7 +274,7 @@ The following table defines the content of the EPCIS Origin Declaration Event:
 }
 ```
 
-#### EPCIS 2.0 XML example
+#### EPCIS 2.0 XML example (non-normative)
 
 ```xml
 <epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:2" schemaVersion="2.0" creationDate="2024-01-20T03:00:00.000+02:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:epcis:xsd:2 EPCglobal-epcis-2_0.xsd" xmlns:eudr="https://ns.eudr.example.com">
@@ -372,7 +372,7 @@ Hence, a simple party master data record for an organisation, identified through
 | _contactType           | Language-tagged string | (Optional) See [gs1:contactType](https://www.gs1.org/voc/contactType)  |
 | _email                 | String                 | (Required) See [gs1:email](https://www.gs1.org/voc/email)  |
 
-The example (non-normative) data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+The **example (non-normative) JSON-LD data structure** provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
@@ -448,7 +448,7 @@ In addition to party master data, it may also be beneficial to share location ma
 | _GeoShape | Polygon | (Conditional) See [gs1:GeoShape](https://gs1.org/voc/GeoShape) |
 | __polygon | String | (Required) See [gs1:polygon](https://gs1.org/voc/polygon) |
 
-The example (non-normative) data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+The **example (non-normative) JSON-LD data structure** provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
@@ -518,7 +518,7 @@ Analogous to party and location master data, it also makes sense to share master
 | scientificName         | String                 | (Required) Scientific name |
 | commodityDescription   | Language-tagged string | (Required) Description of commodity |
 
-The example (non-normative) data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+The **example (non-normative) JSON-LD data structure** provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
