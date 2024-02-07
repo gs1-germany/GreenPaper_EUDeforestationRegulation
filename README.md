@@ -372,7 +372,7 @@ Hence, a simple party master data record for an organisation, identified through
 | _contactType           | Language-tagged string | (Optional) See [gs1:contactType](https://www.gs1.org/voc/contactType)  |
 | _email                 | String                 | (Required) See [gs1:email](https://www.gs1.org/voc/email)  |
 
-The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+The example (non-normative) data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
@@ -448,7 +448,7 @@ In addition to party master data, it may also be beneficial to share location ma
 | _GeoShape | Polygon | (Conditional) See [gs1:GeoShape](https://gs1.org/voc/GeoShape) |
 | __polygon | String | (Required) See [gs1:polygon](https://gs1.org/voc/polygon) |
 
-The example data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
+The example (non-normative) data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
@@ -517,6 +517,8 @@ Analogous to party and location master data, it also makes sense to share master
 | hsCode                 | String                 | (Optional) Harmonized System Code |
 | scientificName         | String                 | (Required) Scientific name |
 | commodityDescription   | Language-tagged string | (Required) Description of commodity |
+
+The example (non-normative) data structure provided below can be implemented across the APIs of the exchanging parties. Given that this master data holds potential relevance for various stakeholders, it would be prudent to make the API endpoints discoverable, for instance, through GS1-compliant Resolvers or the GS1 Registry Platform.
 
 ```json
 {
