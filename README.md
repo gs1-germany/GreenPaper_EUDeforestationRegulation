@@ -125,7 +125,7 @@ In this last scenario (though rather unlikely for the foreseeable future), all a
 The following EUDR excerpt shows the required content of the Due Diligence Statement. Note that the statement as such does not contain all data affected parties are required to collect and/or record:
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
-*Figure 2: Due Diligence Statement as per EU (2023), Annex II*
+*Figure 5: Due Diligence Statement as per EU (2023), Annex II*
 
 ### Master data vs. event data
 
@@ -577,9 +577,9 @@ The following table lists, in alphabetical order of their surname, persons from 
 | Name             | Affiliation     | Job Title                        |
 | ---------------- | --------------- | -------------------------------- |
 | Sven Böckelmann  | benelog         | Head of Software Development     |
-| Carsten Mohr     | ftrace          | Senior Technical Product Manager |
+| Carsten Mohr     | osapiens ftrace | Senior Technical Product Manager |
 | Falk Nieder      | European EPC Competence Center GmbH (EECC) | Head of Software and Traceability Solutions |
-| Patrik Rothe     | ftrace          | Head of osapiens ftrace          |
+| Patrik Rothe     | osapiens ftrace | Head of osapiens ftrace          |
 
 ## References
 
