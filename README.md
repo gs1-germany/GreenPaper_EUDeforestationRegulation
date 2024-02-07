@@ -122,7 +122,7 @@ In this last scenario (though rather unlikely for the foreseeable future), all a
 
 ### Due Diligence Statement
 
-The following EUDR excerpt shows the required content of the Due Diligence Statement. Not that the statement as such does not contain all data affected parties are required to collect and/or record:
+The following EUDR excerpt shows the required content of the Due Diligence Statement. Note that the statement as such does not contain all data affected parties are required to collect and/or record:
 
 ![Due Diligence Statement](./images/DueDiligenceStatement.png "Due Diligence Statement, EU 2023, Annex II")
 *Figure 2: Due Diligence Statement as per EU (2023), Annex II*
