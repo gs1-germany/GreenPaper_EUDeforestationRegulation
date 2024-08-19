@@ -15,7 +15,7 @@ THIS DOCUMENT IS A GS1 GERMANY GREEN PAPER ONLY, NOT A RATIFIED APPLICATION STAN
 
 Release 1.0
 
-**Note:** As part of its comprehensive initiative *Data for Sustainability* (for more information, see [List of GS1 Germany standardisation projects](https://www.gs1-germany.de/gs1-standards/weiterentwicklung/gremienprojekte/)), numerous suppliers, retailers and solution providers from differnt sectors are currently developing an implementation guideline for the EUDR. Once the latter is published, this GitHub repository will be archived.
+**Note:** As part of its comprehensive initiative *Data for Sustainability* (for more information, see [List of GS1 Germany standardisation projects](https://www.gs1-germany.de/gs1-standards/weiterentwicklung/gremienprojekte/)), numerous suppliers, retailers and solution providers from different sectors are currently developing an implementation guideline for the EUDR. Once the latter is published, this GitHub repository will be archived.
 
 ## Introduction
 
