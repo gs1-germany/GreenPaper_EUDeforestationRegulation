@@ -592,7 +592,7 @@ The following table lists, in alphabetical order of their surname, persons from 
 of 31 May 2023 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation and repealing Regulation (EU) No 995/2010, Official Journal of the European Union, June 2023*. Retrieved from [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1115)
 - GS1 (2022). *Core Business Vocabulary (CBV) Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/cbv/](https://ref.gs1.org/standards/cbv/)
 - GS1 (2022). *EPCIS Standard, Release 2.0, Ratified, Jun 2022*. Retrieved from [https://ref.gs1.org/standards/epcis/](https://ref.gs1.org/standards/epcis/)
-- GS1 (2023a). *GS1 Web Vocabulary, Version 1.9*, Available at [https://www.gs1.org/voc/](https://www.gs1.org/voc/)
+- GS1 (2023a). *GS1 Web Vocabulary, Version 1.12*, Available at [https://ref.gs1.org/voc/](https://ref.gs1.org/voc/)
 - GS1 (2023b). *EPCIS Linked Data Model*, Available at [https://ref.gs1.org/epcis](https://ref.gs1.org/epcis)
 - GS1 (2023c). *GS1 System Architecture. How GS1 standards fit together, Release 11.1, Mar 2023*, Available at [https://www.gs1.org/standards/gs1-system-architecture-document/current-standard](https://www.gs1.org/standards/gs1-system-architecture-document/current-standard)
 - Mayrhofer, A./Spanring, C. (2010). *A Uniform Resource Identifier for Geographic Locations ('geo' URI)*, RFC 5870, Retrieved from [https://datatracker.ietf.org/html/rfc5870](https://datatracker.ietf.org/html/rfc5870)
