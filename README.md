@@ -13,7 +13,7 @@ GS1 Germany Green Paper on how meeting the requirements of the EUDR can be suppo
 > It successfully fulfilled its intended purpose (see Disclaimer) and we sincerely thank everyone who engaged with us - whether by reaching out, providing feedback, or sharing ideas.
 >
 > For current guidance on how GS1 standards are applied to meet the requirements of the EUDR, please refer to:
-> 👉 [GS1 Germany EUDR Implementation Guideline](URL)
+> 👉 [GS1 Germany EUDR Implementation Guideline](https://www.gs1-germany.de/branchen-themen/nachhaltigkeit/eu-deforestation-regulation-eudr/#c7209)
 >
 > _This guideline is continuously updated to reflect global GS1 standardisation efforts and evolving regulatory requirements._
 
